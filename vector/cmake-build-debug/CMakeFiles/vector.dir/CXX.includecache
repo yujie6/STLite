@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/yujie6/Documents/Algorithm/DataStructure/STLite/vector/data/one/main.cpp
+../../vector.hpp
+/home/yujie6/Documents/Algorithm/DataStructure/STLite/vector/vector.hpp
+iostream
+-
+iomanip
+-
+vector
+-
+
+/home/yujie6/Documents/Algorithm/DataStructure/STLite/vector/exceptions.hpp
+cstddef
+-
+cstring
+-
+string
+-
+
+/home/yujie6/Documents/Algorithm/DataStructure/STLite/vector/vector.hpp
+exceptions.hpp
+/home/yujie6/Documents/Algorithm/DataStructure/STLite/vector/exceptions.hpp
+climits
+-
+cstddef
+-
+iostream
+-
+
