@@ -57,27 +57,27 @@ include CMakeFiles/vector.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/vector.dir/flags.make
 
-CMakeFiles/vector.dir/data/one/main.cpp.o: CMakeFiles/vector.dir/flags.make
-CMakeFiles/vector.dir/data/one/main.cpp.o: ../data/one/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yujie6/Documents/Algorithm/DataStructure/STLite/vector/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/vector.dir/data/one/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vector.dir/data/one/main.cpp.o -c /home/yujie6/Documents/Algorithm/DataStructure/STLite/vector/data/one/main.cpp
+CMakeFiles/vector.dir/data/three/code.cpp.o: CMakeFiles/vector.dir/flags.make
+CMakeFiles/vector.dir/data/three/code.cpp.o: ../data/three/code.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yujie6/Documents/Algorithm/DataStructure/STLite/vector/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/vector.dir/data/three/code.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vector.dir/data/three/code.cpp.o -c /home/yujie6/Documents/Algorithm/DataStructure/STLite/vector/data/three/code.cpp
 
-CMakeFiles/vector.dir/data/one/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vector.dir/data/one/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yujie6/Documents/Algorithm/DataStructure/STLite/vector/data/one/main.cpp > CMakeFiles/vector.dir/data/one/main.cpp.i
+CMakeFiles/vector.dir/data/three/code.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vector.dir/data/three/code.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yujie6/Documents/Algorithm/DataStructure/STLite/vector/data/three/code.cpp > CMakeFiles/vector.dir/data/three/code.cpp.i
 
-CMakeFiles/vector.dir/data/one/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vector.dir/data/one/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yujie6/Documents/Algorithm/DataStructure/STLite/vector/data/one/main.cpp -o CMakeFiles/vector.dir/data/one/main.cpp.s
+CMakeFiles/vector.dir/data/three/code.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vector.dir/data/three/code.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yujie6/Documents/Algorithm/DataStructure/STLite/vector/data/three/code.cpp -o CMakeFiles/vector.dir/data/three/code.cpp.s
 
 # Object files for target vector
 vector_OBJECTS = \
-"CMakeFiles/vector.dir/data/one/main.cpp.o"
+"CMakeFiles/vector.dir/data/three/code.cpp.o"
 
 # External object files for target vector
 vector_EXTERNAL_OBJECTS =
 
-vector: CMakeFiles/vector.dir/data/one/main.cpp.o
+vector: CMakeFiles/vector.dir/data/three/code.cpp.o
 vector: CMakeFiles/vector.dir/build.make
 vector: CMakeFiles/vector.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yujie6/Documents/Algorithm/DataStructure/STLite/vector/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable vector"

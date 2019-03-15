@@ -4,13 +4,12 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/yujie6/Documents/Algorithm/DataStructure/STLite/vector/data/one/main.cpp" "/home/yujie6/Documents/Algorithm/DataStructure/STLite/vector/build/CMakeFiles/vector.dir/data/one/main.cpp.o"
+  "/home/yujie6/Documents/Algorithm/DataStructure/STLite/vector/data/three/code.cpp" "/home/yujie6/Documents/Algorithm/DataStructure/STLite/vector/build/CMakeFiles/vector.dir/data/three/code.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "../."
   )
 
 # Targets to which this target links.

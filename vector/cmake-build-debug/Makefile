@@ -123,32 +123,32 @@ vector/fast:
 	$(MAKE) -f CMakeFiles/vector.dir/build.make CMakeFiles/vector.dir/build
 .PHONY : vector/fast
 
-data/one/main.o: data/one/main.cpp.o
+data/three/code.o: data/three/code.cpp.o
 
-.PHONY : data/one/main.o
+.PHONY : data/three/code.o
 
 # target to build an object file
-data/one/main.cpp.o:
-	$(MAKE) -f CMakeFiles/vector.dir/build.make CMakeFiles/vector.dir/data/one/main.cpp.o
-.PHONY : data/one/main.cpp.o
+data/three/code.cpp.o:
+	$(MAKE) -f CMakeFiles/vector.dir/build.make CMakeFiles/vector.dir/data/three/code.cpp.o
+.PHONY : data/three/code.cpp.o
 
-data/one/main.i: data/one/main.cpp.i
+data/three/code.i: data/three/code.cpp.i
 
-.PHONY : data/one/main.i
+.PHONY : data/three/code.i
 
 # target to preprocess a source file
-data/one/main.cpp.i:
-	$(MAKE) -f CMakeFiles/vector.dir/build.make CMakeFiles/vector.dir/data/one/main.cpp.i
-.PHONY : data/one/main.cpp.i
+data/three/code.cpp.i:
+	$(MAKE) -f CMakeFiles/vector.dir/build.make CMakeFiles/vector.dir/data/three/code.cpp.i
+.PHONY : data/three/code.cpp.i
 
-data/one/main.s: data/one/main.cpp.s
+data/three/code.s: data/three/code.cpp.s
 
-.PHONY : data/one/main.s
+.PHONY : data/three/code.s
 
 # target to generate assembly for a file
-data/one/main.cpp.s:
-	$(MAKE) -f CMakeFiles/vector.dir/build.make CMakeFiles/vector.dir/data/one/main.cpp.s
-.PHONY : data/one/main.cpp.s
+data/three/code.cpp.s:
+	$(MAKE) -f CMakeFiles/vector.dir/build.make CMakeFiles/vector.dir/data/three/code.cpp.s
+.PHONY : data/three/code.cpp.s
 
 # Help Target
 help:
@@ -159,9 +159,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... vector"
 	@echo "... edit_cache"
-	@echo "... data/one/main.o"
-	@echo "... data/one/main.i"
-	@echo "... data/one/main.s"
+	@echo "... data/three/code.o"
+	@echo "... data/three/code.i"
+	@echo "... data/three/code.s"
 .PHONY : help
 
 

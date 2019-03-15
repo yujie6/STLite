@@ -131,10 +131,12 @@ public:
 	 * has same function as iterator, just for a const object.
 	 */
 	class const_iterator {
+
     private:
         int pos;
         vector * origin;
     public:
+
         /**
          * return a new iterator which pointer n-next elements
          *   even if there are not enough elements, just return the answer.
@@ -196,8 +198,8 @@ public:
          * TODO *it
          */
         T& operator*() const{
-            T ans = (*origin)[pos];
-            return ans;
+            return (origin->v)[pos];
+            //return ans;
         }
         /**
          * a operator to check whether two iterators are same (pointing to the same memory).
@@ -321,7 +323,7 @@ public:
 	    return ans;
 	}
 	const_iterator cbegin() const {
-        vector<T> nn = *this;
+        static vector<T> nn = *this;
         const_iterator ans(0, &nn);
         return ans;
 	}
@@ -359,46 +361,71 @@ public:
 	 * clears the contents
 	 */
 	void clear() {
-	    delete [] v;
+
 	    current_size = 0;
 	}
 	/**
 	 * inserts value before pos
 	 * returns an iterator pointing to the inserted value.
 	 */
-	iterator insert(iterator pos, const T &value) {}
+	iterator insert(iterator it, const T &value) {
+	    size_t ind = 0;
+	    while(it != begin()){
+	        ind++; it--;
+	    }
+	    return insert(ind, value);
+	}
 	/**
 	 * inserts value at index ind.
 	 * after inserting, this->at(ind) == value is true
 	 * returns an iterator pointing to the inserted value.
 	 * throw index_out_of_bound if ind > size (in this situation ind can be size because after inserting the size will increase 1.)
 	 */
-	iterator insert(const size_t &ind, const T &value) {}
+	iterator insert(const size_t &ind, const T &value) {
+	    if (ind > current_size) throw(index_out_of_bound());
+	    current_size++;
+	    if(current_size == max_size) doublespace();
+        for (int i = current_size-1; i > ind; i--) {
+            this->at(i) = this->at(i - 1);
+        }
+        this->at(ind) = value;
+        iterator it = begin() + ind;
+        return it;
+	}
 	/**
 	 * removes the element at pos.
 	 * return an iterator pointing to the following element.
 	 * If the iterator pos refers the last element, the end() iterator is returned.
 	 */
-	iterator erase(iterator pos) {}
+	iterator erase(iterator it) {
+        size_t ind = 0;
+        while(it != begin()){
+            ind++;
+            it--;
+        }
+        return erase(ind);
+	}
 	/**
 	 * removes the element with index ind.
 	 * return an iterator pointing to the following element.
 	 * throw index_out_of_bound if ind >= size
 	 */
-	iterator erase(const size_t &ind) {}
+	iterator erase(const size_t &ind) {
+	    if (ind >= current_size) throw (index_out_of_bound());
+	    for (int i = ind; i < current_size-1; i++){
+	        this->at(i) = this->at(i+1);
+	    }
+        current_size--;
+	    iterator ans = begin() + ind;
+	    return ans;
+	}
 	/**
 	 * adds an element to the end.
 	 */
 	void push_back(const T &value) {
-	    if (current_size < max_size){
-	        v[current_size] = value;
-	        current_size++;
-	    }
-	    else {
-	        doublespace();
-	        v[current_size] = value;
-	        current_size++;
-	    }
+	    if (current_size+1 >= max_size) doublespace();
+        v[current_size] = value;
+        current_size++;
 	}
 	/**
 	 * remove the last element from the end.
@@ -415,8 +442,6 @@ public:
 	}
 
 };
-
-
 
 
 }

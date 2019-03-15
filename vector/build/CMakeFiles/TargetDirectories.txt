@@ -1,7 +1,3 @@
-/home/yujie6/Documents/Algorithm/DataStructure/STLite/vector/build/CMakeFiles/install/strip.dir
-/home/yujie6/Documents/Algorithm/DataStructure/STLite/vector/build/CMakeFiles/edit_cache.dir
-/home/yujie6/Documents/Algorithm/DataStructure/STLite/vector/build/CMakeFiles/vector.dir
-/home/yujie6/Documents/Algorithm/DataStructure/STLite/vector/build/CMakeFiles/list_install_components.dir
-/home/yujie6/Documents/Algorithm/DataStructure/STLite/vector/build/CMakeFiles/install/local.dir
 /home/yujie6/Documents/Algorithm/DataStructure/STLite/vector/build/CMakeFiles/rebuild_cache.dir
-/home/yujie6/Documents/Algorithm/DataStructure/STLite/vector/build/CMakeFiles/install.dir
+/home/yujie6/Documents/Algorithm/DataStructure/STLite/vector/build/CMakeFiles/vector.dir
+/home/yujie6/Documents/Algorithm/DataStructure/STLite/vector/build/CMakeFiles/edit_cache.dir

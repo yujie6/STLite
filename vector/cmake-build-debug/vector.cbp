@@ -84,7 +84,16 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/yujie6/Documents/Algorithm/DataStructure/STLite/vector/data/one/main.cpp">
+		<Unit filename="/home/yujie6/Documents/Algorithm/DataStructure/STLite/vector/data/class-bint.hpp">
+			<Option target="vector"/>
+		</Unit>
+		<Unit filename="/home/yujie6/Documents/Algorithm/DataStructure/STLite/vector/data/class-integer.hpp">
+			<Option target="vector"/>
+		</Unit>
+		<Unit filename="/home/yujie6/Documents/Algorithm/DataStructure/STLite/vector/data/class-matrix.hpp">
+			<Option target="vector"/>
+		</Unit>
+		<Unit filename="/home/yujie6/Documents/Algorithm/DataStructure/STLite/vector/data/three/code.cpp">
 			<Option target="vector"/>
 		</Unit>
 		<Unit filename="/home/yujie6/Documents/Algorithm/DataStructure/STLite/vector/exceptions.hpp">

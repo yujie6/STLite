@@ -43,6 +43,7 @@ void TestIterators()
 	}
 	std::cout << std::endl;
 	const sjtu::vector<int> vc(v);
+	//std::cout << vc[0] << " " << vc[1] << std::endl;
 	for (sjtu::vector<int>::const_iterator it = vc.cbegin(); it != vc.cend(); ++it) {
 		std::cout << *it << " ";
 	}

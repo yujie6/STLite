@@ -1,8 +1,8 @@
-#include "vector.hpp"
+#include "../../vector.hpp"
 
-#include "class-integer.hpp"
-#include "class-matrix.hpp"
-#include "class-bint.hpp"
+#include "../class-integer.hpp"
+#include "../class-matrix.hpp"
+#include "../class-bint.hpp"
 
 #include <iostream>
 #include <fstream>

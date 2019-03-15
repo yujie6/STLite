@@ -9,7 +9,7 @@ set(CMAKE_CXX_STANDARD 14)
 #SET(VECTOR ${DIR_SRCS})
 #SET(BIN_DIR ../bin)
 #MESSAGE("Set environmental variables successfully.")
-ADD_EXECUTABLE(vector ./data/one/main.cpp ./vector.hpp ./exceptions.hpp ./utility.hpp)
+ADD_EXECUTABLE(vector ./data/three/code.cpp ./vector.hpp ./exceptions.hpp ./utility.hpp ./data/class-bint.hpp ./data/class-integer.hpp ./data/class-matrix.hpp)
 #TARGET_LINK_LIBRARIES(vector vector.hpp utility.hpp exceptions.hpp)
 #INSTALL(TARGETS vector RUNTIME DESTINATION ${BIN_DIR} )
 
