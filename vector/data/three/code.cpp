@@ -45,7 +45,7 @@ void TestBint()
 
 int main()
 {
-	TestInteger();
+	//TestInteger();
 	TestMatrix();
-	TestBint();
+	//TestBint();
 }

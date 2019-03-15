@@ -14,6 +14,7 @@ namespace sjtu {
  */
 template<typename T>
 class vector {
+
 private:
     T * v;
     int max_size;
@@ -21,13 +22,23 @@ private:
     void doublespace(){
         max_size = 2 * max_size;
         T * v1 = v;
-        v = new T[max_size];
+        v = PlacementNew(max_size);
+        //v = new T[max_size];
         for (int i = 0; i < current_size; i++){
             v[i] = v1[i];
         }
-        delete [] v1;
+        PlacementFree(v1);
+        //delete [] v1;
     };
 public:
+
+    T * PlacementNew(int len){
+        T * p = (T *)malloc(len * sizeof(T));
+        return p;
+    };
+    void PlacementFree(T * p){
+        free(p);
+    }
 	/**
 	 * TODO
 	 * a type for actions of the elements of a vector, and you should write
@@ -226,12 +237,14 @@ public:
 	 */
 	vector() {
 	    current_size = 0;
-	    max_size = 1;
-	    v = new T[max_size];
+	    max_size = 5;
+	    //v = new T[max_size];
+	    v = PlacementNew(max_size);
 	}
 	vector(const vector &other) {
 	    max_size = other.max_size;
-	    v = new T[other.max_size];
+	    v = PlacementNew(other.max_size);
+	    //v = new T[other.max_size];
 	    for (int i = 0; i < other.current_size; i++){
 	        v[i] = other[i];
 	    }
@@ -242,7 +255,8 @@ public:
 	 */
 	~vector() {
 	    clear();
-	    delete [] v;
+	    PlacementFree(v);
+	    //delete [] v;
 	}
 	/**
 	 * TODO Assignment operator
@@ -361,7 +375,6 @@ public:
 	 * clears the contents
 	 */
 	void clear() {
-
 	    current_size = 0;
 	}
 	/**
@@ -383,8 +396,9 @@ public:
 	 */
 	iterator insert(const size_t &ind, const T &value) {
 	    if (ind > current_size) throw(index_out_of_bound());
-	    current_size++;
-	    if(current_size == max_size) doublespace();
+
+	    if(current_size == max_size-1) doublespace();
+        current_size++;
         for (int i = current_size-1; i > ind; i--) {
             this->at(i) = this->at(i - 1);
         }
@@ -423,7 +437,7 @@ public:
 	 * adds an element to the end.
 	 */
 	void push_back(const T &value) {
-	    if (current_size+1 >= max_size) doublespace();
+	    if (current_size >= max_size - 1) doublespace();
         v[current_size] = value;
         current_size++;
 	}
