@@ -101,6 +101,8 @@ void TestInsert()
 	for (sjtu::vector<int>::iterator it = v.begin(); it != v.end(); ++it) {
 		std::cout << *it << " ";
 	}
+	//std::cout << std::endl;
+	//for (auto i = 0; i < 12; i++)  std::cout << v.at(i) << " ";
 	std::cout << std::endl;
 }
 

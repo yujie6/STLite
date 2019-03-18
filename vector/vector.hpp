@@ -21,24 +21,14 @@ private:
     int current_size;
     void doublespace(){
         max_size = 2 * max_size;
-        T * v1 = v;
-        v = PlacementNew(max_size);
-        //v = new T[max_size];
-        for (int i = 0; i < current_size; i++){
-            v[i] = v1[i];
-        }
-        PlacementFree(v1);
-        //delete [] v1;
+        T * v1 = (T*)malloc(sizeof(T) * max_size);
+        for (auto i = 0; i < current_size; i++) new(&v1[i])T(v[i]); //using placement new
+        clear();
+        free(v);
+        v = v1;
     };
 public:
 
-    T * PlacementNew(int len){
-        T * p = (T *)malloc(len * sizeof(T));
-        return p;
-    };
-    void PlacementFree(T * p){
-        free(p);
-    }
 	/**
 	 * TODO
 	 * a type for actions of the elements of a vector, and you should write
@@ -64,6 +54,10 @@ public:
 		 */
 		iterator(int p, vector * o){
 		    pos = p; origin = o;
+		}
+
+		~iterator(){
+		    //delete origin;
 		}
 		iterator operator+(const int &n) const {
 		    iterator ans(pos + n, origin);
@@ -154,7 +148,10 @@ public:
          * as well as operator-
          */
         const_iterator(int p, vector * o){
-            pos = p; origin = o;
+            pos = p; origin = new vector(*o);
+        }
+        ~const_iterator(){
+            delete origin;
         }
         const_iterator operator+(const int &n) const {
             const_iterator ans;
@@ -238,13 +235,13 @@ public:
 	vector() {
 	    current_size = 0;
 	    max_size = 5;
-	    //v = new T[max_size];
-	    v = PlacementNew(max_size);
+
+	    v = (T*)malloc(sizeof(T)*max_size);
+
 	}
 	vector(const vector &other) {
 	    max_size = other.max_size;
-	    v = PlacementNew(other.max_size);
-	    //v = new T[other.max_size];
+        v = (T*)malloc(sizeof(T)*max_size);
 	    for (int i = 0; i < other.current_size; i++){
 	        v[i] = other[i];
 	    }
@@ -254,17 +251,18 @@ public:
 	 * TODO Destructor
 	 */
 	~vector() {
-	    clear();
-	    PlacementFree(v);
-	    //delete [] v;
+        clear();
+	    free(v);
+	    v = NULL;
 	}
 	/**
 	 * TODO Assignment operator
 	 */
 	vector &operator=(const vector &other) {
 	    max_size = other.max_size;
-	    delete [] v;
-	    v = new T[other.current_size];
+	    clear();
+	    free(v);
+	    v = (T*)malloc(sizeof(T)*max_size);
         for (int i = 0; i < other.current_size; i++){
             v[i] = other[i];
         }
@@ -333,7 +331,8 @@ public:
 	 * returns an iterator to the beginning.
 	 */
 	iterator begin() {
-	    iterator ans(0, &(*this));
+	    //static vector<T> nn = *this;
+	    iterator ans(0, this);
 	    return ans;
 	}
 	const_iterator cbegin() const {
@@ -345,11 +344,12 @@ public:
 	 * returns an iterator to the end.
 	 */
 	iterator end() {
-	    iterator ans(current_size, &(*this));
+        //static vector<T> nn = *this;
+	    iterator ans(current_size, this);
 	    return ans;
 	}
 	const_iterator cend() const {
-	    vector<T> nn = *this;
+	    static vector<T> nn = *this;
         const_iterator ans(current_size, &nn);
         return ans;
 	}
@@ -375,7 +375,9 @@ public:
 	 * clears the contents
 	 */
 	void clear() {
-	    current_size = 0;
+        for (int i = 0; i < current_size; i++) {
+            v[i].~T();
+        }
 	}
 	/**
 	 * inserts value before pos
@@ -438,7 +440,7 @@ public:
 	 */
 	void push_back(const T &value) {
 	    if (current_size >= max_size - 1) doublespace();
-        v[current_size] = value;
+        if (current_size < max_size) new(&v[current_size])T(value); //placement new
         current_size++;
 	}
 	/**

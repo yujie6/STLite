@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/deque.dir/data/one/code.cpp.o  -o deque 
