@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/yujie6/Documents/Algorithm/DataStructure/STLite/mapB/data/one/code.cpp
+iostream
+-
+cstdio
+-
+algorithm
+-
+cstring
+-
+map.hpp
+/home/yujie6/Documents/Algorithm/DataStructure/STLite/mapB/data/one/map.hpp
+
