@@ -1,4 +1,4 @@
-/home/yujie6/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/183.5429.37/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/yujie6/Documents/Algorithm/DataStructure/STLite/mapB
+/home/yujie6/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/191.6183.77/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/yujie6/Documents/Algorithm/DataStructure/STLite/mapB
 -- The CXX compiler identification is GNU 8.2.0
 -- Check for working CXX compiler: /usr/bin/c++
 -- Check for working CXX compiler: /usr/bin/c++ -- works
