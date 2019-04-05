@@ -42,6 +42,14 @@ struct cmp{
 };
 sjtu::map<Key,Data,cmp> map;
 int num = 5000;
+void Print();
+void my_test(){
+    for (int i = 1; i <= num/10; i++){
+        map[Key(i)] = Data(i);
+    }
+    Print();
+}
+
 void test_insert(){
 	puts("Test: insert");
 	std::cout<<"empty:"<<map.empty()<<std::endl;
@@ -81,7 +89,9 @@ void test_insert(){
 }
 void Print(){
 	for(sjtu::map<Key,Data,cmp>::const_iterator it(map.cbegin());it!=map.cend();++it)
-		std::cout<<(it->first).num()<<' '<<((*it).second).num()<<' ';
+    {
+	    std::cout<<(it->first).num()<<' '<<((*it).second).num()<<' ';
+    }
 	puts("");
 }
 void test_erase(){
@@ -96,14 +106,16 @@ void test_erase(){
 }
 void test_const_at(){
 	puts("Test: const_at");
+	std::cout << (map.at(Key(5920)) ).num() << std::endl;
 	const sjtu::map<Key,Data,cmp> mm(map);
 	for(int i=1;i<=num;i++){
 		int tmp(rand() % 10000);
 		try{
+		    Data b(mm.at(Key(tmp)));
 			std::cout<<(mm.at(Key(tmp))).num()<<' ';
 		}catch(...){}
 	}
-	
+	std::cout << std::endl;
 	for(int i=1;i<=num;i++){
 		int tmp(rand() % 10000);
 		try{
@@ -231,10 +243,11 @@ void test_iterator()
 	}
 }
 int main(){
+    //my_test();
 	test_insert();
-	//test_erase();
-	//test_const_at();
-	//test_count();
+	test_erase();
+	test_const_at();
+	test_count();
 	//test_find();
 	//test_copy();
 	//test_iterator();
