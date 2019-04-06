@@ -100,13 +100,14 @@ void test_erase(){
 		int p = rand() % map.size();
 		sjtu::map<Key,Data,cmp>::iterator it(map.begin());
 		while (p--) it++;
+		//if (it == map.find(Key(5920)) ) std::cout << std::endl <<"goddamnit" << std::endl;
 		map.erase(it);
 	}
 	Print();
 }
 void test_const_at(){
 	puts("Test: const_at");
-	std::cout << (map.at(Key(5920)) ).num() << std::endl;
+	//std::cout << (map.at(Key(5920)) ).num() << std::endl;
 	const sjtu::map<Key,Data,cmp> mm(map);
 	for(int i=1;i<=num;i++){
 		int tmp(rand() % 10000);
@@ -218,6 +219,7 @@ void test_copy()
 	for(;it1!=m1.end() || it2!=m2.end();it1++,it2++)
 	{
 		std::cout<<(it1->first).num()<<' '<<(it1->second).num()<<' '<<(it2->first).num()<<' '<<(it2->second).num()<<' ';
+	    //if ((it1->first).num() == 1 && (it2->first).num() == 1 && (it1->second).num() == 1) break;
 	}
 	puts("");
 }
@@ -248,7 +250,10 @@ int main(){
 	test_erase();
 	test_const_at();
 	test_count();
-	//test_find();
-	//test_copy();
+	test_find();
+    test_throw();
+    test_const_throw();
+	test_copy();
+
 	//test_iterator();
 }

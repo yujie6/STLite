@@ -33,8 +33,9 @@ public:
         node * right;
         value_type data;
         int height;
-        node(value_type element=value_type(Key(1),T(1)), node* l=NULL, node* r=NULL, int h=1):left(l), right(r), data(element), height
+        node(value_type element=value_type(Key(0),T(1)), node* l=NULL, node* r=NULL, int h=1):left(l), right(r), data(element), height
                 (h){}
+
     };
 private:
     node * root;
@@ -98,6 +99,7 @@ public:
 		 */
 
 		iterator operator++(int) {
+		    if (origin == tail) throw(invalid_iterator());
 		    node * t = origin;
             Key ans = origin->data.first;
 		    Key Current_Key = ans;
@@ -118,7 +120,7 @@ public:
                 }
             }
             if (!flag) {
-                t = tail;
+                origin = tail;
                 iterator Ans(t, root, tail);
                 return Ans;
             }
@@ -131,6 +133,7 @@ public:
 		 * TODO ++iter
 		 */
 		iterator & operator++() {
+            if (origin == tail) throw(invalid_iterator());
             Key ans = origin->data.first;
             Key Current_Key = ans;
             node * tmp = root;
@@ -160,7 +163,15 @@ public:
 		/**
 		 * TODO iter--
 		 */
+
+        node * Begin() {
+            node * tmp = root;
+            while (tmp->left != NULL) tmp = tmp->left;
+            return tmp;
+        }
+
 		iterator operator--(int) {
+		    if (origin == Begin()) throw(invalid_iterator());
 		    node * t = origin;
             Key ans = origin->data.first;
             Key Current_Key = ans;
@@ -189,6 +200,7 @@ public:
 		 * TODO --iter
 		 */
 		iterator & operator--() {
+            if (origin == Begin()) throw(invalid_iterator());
             Key ans = origin->data.first;
             Key Current_Key = ans;
             node * tmp = root;
@@ -243,7 +255,7 @@ public:
         }
 
 		/**
-		 * for the support of it.first. 
+		 * for the support of it.first.
 		 * See <http://kelvinh.github.io/blog/2013/11/20/overloading-of-member-access-operator-dash-greater-than-symbol-in-cpp/> for help.
 		 */
 		value_type* operator->() const noexcept {
@@ -279,7 +291,14 @@ public:
                 return origin->data;
             }
 
+            node * Begin() {
+                node * tmp = root;
+                while (tmp->left != NULL) tmp = tmp->left;
+                return tmp;
+            }
+
             const_iterator operator++(int) {
+                if (origin == tail) throw(invalid_iterator());
                 node * t = origin;
                 Key ans = origin->data.first;
                 Key Current_Key = ans;
@@ -313,6 +332,7 @@ public:
              * TODO ++iter
              */
             const_iterator & operator++() {
+                if (origin == tail) throw(invalid_iterator());
                 if (origin == root){
                     node * tmp = origin->right;
                     while(tmp->left != NULL) tmp = tmp->left;
@@ -349,6 +369,7 @@ public:
              * TODO iter--
              */
             const_iterator operator--(int) {
+                if (origin == Begin()) throw(invalid_iterator());
                 node * t = origin;
                 Key ans = origin->data.first;
                 Key Current_Key = ans;
@@ -377,6 +398,7 @@ public:
              * TODO --iter
              */
             const_iterator & operator--() {
+                if (origin == Begin()) throw(invalid_iterator());
                 Key ans = origin->data.first;
                 Key Current_Key = ans;
                 node * tmp = root;
@@ -441,21 +463,24 @@ public:
 	map(const map &other) {
         root = copy(other.root);
         length = other.length;
-        tail = other.tail;
+        tail = copy(other.tail);
 	}
 	/**
 	 * TODO assignment operator
 	 */
 	map & operator=(const map &other) {
+	    if (this == &other) return *this;
 	    clear();
         root = copy(other.root);
+        if(tail == NULL) tail = new node();
         length = other.length;
+
         return *this;
 	}
 	/**
 	 * TODO Destructors
 	 */
-	~map() {clear(); }
+	~map() {clear(); delete(tail);}
 	/**
 	 * TODO
 	 * access specified element with bounds checking
@@ -463,44 +488,60 @@ public:
 	 * If no such element exists, an exception of type `index_out_of_bound'
 	 */
 	T & at(const Key &key) {
-	    if (Find(key) == NULL) throw(index_out_of_bound());
-        return Find(key)->data.second;
+	    iterator tmp = find(key);
+	    if (tmp != end()){
+	        return tmp->second;
+	    }
+	    else throw(index_out_of_bound());
 	}
 	const T & at(const Key &key) const {
-        if (Find(key) == NULL) throw(index_out_of_bound());
-        return Find(key)->data.second;
+        const_iterator tmp = find(key);
+        if (tmp != cend()){
+            return tmp->second;
+        }
+        else {
+            throw(index_out_of_bound());
+        }
 	}
 	/**
 	 * TODO
-	 * access specified element 
+	 * access specified element
 	 * Returns a reference to the value that is mapped to a key equivalent to key,
 	 *   performing an insertion if such key does not already exist.
 	 */
 	T & operator[](const Key &key) {
-        if (Find(key) != NULL) return at(key);
+        iterator tmp = find(key);
+        if (tmp != end()){
+            return tmp->second;
+        }
         else {
             value_type value(key, T(1));
-            insert(value);
-            return at(key);
+            tmp = insert(value).first;
+            return tmp->second;
         }
 	}
 	/**
 	 * behave like at() throw index_out_of_bound if such key does not exist.
 	 */
 	const T & operator[](const Key &key) const {
-	    //if (Find(key) == NULL) throw(index_out_of_bound());
-	    return at(key);
+	    const_iterator tmp = find(key);
+	    if (tmp != cend()){
+	        return tmp->second;
+	    }
+	    else throw(index_out_of_bound());
 	}
 	/**
 	 * return a iterator to the beginning
 	 */
 	iterator begin() {
+	    if (length == 0) return iterator(tail,root,tail);
 	    node * tmp = root;
 	    while (tmp->left != NULL) tmp = tmp->left;
 	    iterator ans(tmp, root, tail);
 	    return ans;
 	}
 	const_iterator cbegin() const {
+        if (length == 0) return iterator(tail,root,tail);
         node * tmp = root;
         while (tmp->left != NULL) tmp = tmp->left;
         const_iterator ans(tmp, root, tail);
@@ -511,10 +552,12 @@ public:
 	 * in fact, it returns past-the-end.
 	 */
 	iterator end() {
+	    if (length == 0) return begin();
         iterator ans(tail, root, tail);
         return ans;
 	}
 	const_iterator cend() const {
+	    if (length == 0) return cbegin();
         const_iterator ans(tail, root, tail);
         return ans;
 	}
@@ -530,11 +573,14 @@ public:
 	/**
 	 * clears the contents
 	 */
-	void clear() {make_empty(root); length = 0;}
+	void clear() {
+	    make_empty(root); length = 0;
+	    root = NULL;
+	}
 	/**
 	 * insert an element.
 	 * return a pair, the first of the pair is
-	 *   the iterator to the new element (or the element that prevented the insertion), 
+	 *   the iterator to the new element (or the element that prevented the insertion),
 	 *   the second one is true if insert successfully, or false.
 	 */
 	pair<iterator, bool> insert(const value_type &value) {
@@ -566,59 +612,19 @@ public:
 	void remove( Key x){
 	    remove(x, root);
 	}
-	bool remove( Key x, node * t){
-	    if (t == NULL) return true;
-	    if ( !Fewer(x,t->data.first) && Fewer(t->data.first, x) ){
-	        if (t->left == NULL || t->right == NULL){
-	            //t has 1 child
-                node * OldNode = t;
-                if (t->left != NULL) t = t->left;
-                else t = t->right;
-                delete OldNode;
-                return false;//t->height has changed
-	        }
-	        else {//t has 2 child
-                node * tmp = t->right;
-                while(tmp->left != NULL) tmp = tmp->left;
-                t->data.first = tmp->data.first;
-                t->data.second = tmp->data.second;
-                if (remove(tmp->data.first, t->right)) return true;
-                return adjust(t, 1);
-	        }
-	    }
-	    else if (Fewer(x, t->data.first)){
-	        if (remove(x, t->left)) return true; //remove successfully
-	            return adjust(t, 0);        //not successful, need to adjust. //
-	            // may keep adjusting until ok
-	    }
-        else {
-            if (remove(x, t->right)) return true;
-            else return adjust(t, 1);
-        }
-	}
+
 
 
 	/**
-	 * Returns the number of elements with key 
+	 * Returns the number of elements with key
 	 *   that compares equivalent to the specified argument,
-	 *   which is either 1 or 0 
+	 *   which is either 1 or 0
 	 *     since this container does not allow duplicates.
 	 * The default method of check the equivalence is !(a < b || b > a)
 	 */
 	size_t count(const Key &key) const {
-	    /*size_t sum = 0;
-	    node * t = root;
-	    while (t != NULL){
-	        if (!Fewer(key, t->data.first) && !Fewer(t->data.first, key) ) sum++;
-	        if (Fewer(key, t->data.first)) {
-	            t = t->left;
-	        }
-	        else {
-	            t = t->right;
-	        }
-	    }*/
-	    //if (sum != 0 && sum != 1) throw(index_out_of_bound());
-	    return 1;
+	    if (Find(key) == NULL) return 0;
+	    else return 1;
 	}
 	/**
 	 * Finds an element with key equivalent to key.
@@ -628,21 +634,59 @@ public:
 	 */
 	iterator find(const Key &key) {
         node * p = Find(key);
+        if (p == NULL){
+            return end();
+        }
         iterator ans(p, root, tail);
         return ans;
 	}
 	const_iterator find(const Key &key) const {
         node * p = Find(key);
-        iterator ans(p, root, tail);
+        if (p == NULL){
+            return cend();
+        }
+        const_iterator ans(p, root, tail);
         return ans;
 	}
 
 private:
     node* copy(const node * other){
 	    if (other == NULL) return NULL;
-        auto tmp = new node(other->data, copy(other->left), copy(other->right), height(other) );
+	    Key data1(other->data.first); T data2(other->data.second);
+        value_type NewValue(data1, data2);
+        node * tmp = new node( NewValue, copy(other->left), copy(other->right), height(other) );
 	    return tmp;
 	}
+    bool remove( Key x, node * &t){
+        if (t == NULL) return true;
+        if ( !Notequal(x, t->data.first) ){
+            if (t->left == NULL || t->right == NULL){
+                //t has 1 child
+                node * OldNode = t;
+                if (t->left != NULL) t = t->left;
+                else t = t->right;
+                delete OldNode;
+                return false;//t->height has changed
+            }
+            else {//t has 2 child
+                node * tmp = t->right;
+                while(tmp->left != NULL) tmp = tmp->left;
+                t->data.first = tmp->data.first;
+                t->data.second = tmp->data.second;
+                if (remove(tmp->data.first, t->right)) return true;
+                return adjust(t, 1);
+            }
+        }
+        else if (Fewer(x, t->data.first)){
+            if (remove(x, t->left)) return true; //remove successfully
+            return adjust(t, 0);        //not successful, need to adjust. //
+            // may keep adjusting until ok
+        }
+        else {
+            if (remove(x, t->right)) return true;
+            else return adjust(t, 1);
+        }
+    }
 
     void insert(const value_type &value, node * &t){
         if (t == NULL) t = new node(value, NULL, NULL);
@@ -670,8 +714,8 @@ private:
 	    make_empty(p->right);
 	    delete p;
 	}
-	int height(node * t) const{ return t == NULL ? 0 : t->height; }
-    int height(const node * t) const{ return t == NULL ? 0 : t->height; }
+	int height( node * &t) const{ return (t == NULL) ? 0 : t->height; }
+    int height(const node * &t) const{ return (t == NULL) ? 0 : t->height; }
 
 	node * Find(const Key &x) const{
 	    node * t = root;
@@ -714,7 +758,7 @@ private:
 	            LR(t); return false;
 	        }
 	        LL(t);
-            return height(t->left) != height(t->right);
+            return (height(t->left) != height(t->right));
 	    }
 	    else {
 	        if (height(t->right) - height(t->left) == 1) return true;

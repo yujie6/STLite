@@ -5,7 +5,7 @@
       <config projectName="map" targetName="map" />
     </generated>
   </component>
-  <component name="CMakeSettings">
+  <component name="CMakeSettings" AUTO_RELOAD="true">
     <configurations>
       <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
     </configurations>
@@ -13,14 +13,16 @@
   <component name="ChangeListManager">
     <list default="true" id="ad9f14cd-726f-4e76-acb5-eda2966d9e91" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/Progress/1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/Progress/count.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/map.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/map.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/map.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/map.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/map.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/map.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/count.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/map.dir/data/one/code.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/map.dir/data/one/code.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/map" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/five/code.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/data/five/code.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/four/code.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/data/four/code.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/one/.answer.txt.swp" beforeDir="false" afterPath="$PROJECT_DIR$/data/one/.answer.txt.swp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/one/code.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/data/one/code.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/three/code.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/data/three/code.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/two/code.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/data/two/code.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/map.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/map.hpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -39,11 +41,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/map.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-29">
-              <caret line="464" column="8" selection-start-line="464" selection-start-column="8" selection-end-line="464" selection-end-column="8" />
+            <state relative-caret-position="21">
+              <caret line="752" column="30" selection-start-line="752" selection-start-column="30" selection-end-line="752" selection-end-column="30" />
               <folding>
                 <element signature="e#115#136#0" expanded="true" />
                 <element signature="e#232#289#0" expanded="true" />
@@ -57,13 +59,25 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/one/code.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="110" column="28" lean-forward="true" selection-start-line="110" selection-start-column="28" selection-end-line="110" selection-end-column="28" />
+            <state relative-caret-position="210">
+              <caret line="102" column="40" selection-start-line="102" selection-start-column="40" selection-end-line="102" selection-end-column="40" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/two/code.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="480" column="26" selection-start-line="480" selection-start-column="26" selection-end-line="480" selection-end-column="26" />
+              <folding>
+                <element signature="e#28#47#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -81,8 +95,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
+            <state relative-caret-position="220">
+              <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -99,6 +113,9 @@
       <find>NULL</find>
       <find>nullptr</find>
       <find>height</find>
+      <find>end</find>
+      <find>length</find>
+      <find>clear</find>
     </findStrings>
     <replaceStrings>
       <replace>.first</replace>
@@ -110,8 +127,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/map.hpp" />
+        <option value="$PROJECT_DIR$/data/two/code.cpp" />
+        <option value="$PROJECT_DIR$/data/three/code.cpp" />
+        <option value="$PROJECT_DIR$/data/four/code.cpp" />
+        <option value="$PROJECT_DIR$/data/five/code.cpp" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/data/one/code.cpp" />
+        <option value="$PROJECT_DIR$/map.hpp" />
       </list>
     </option>
   </component>
@@ -139,6 +161,12 @@
               <item name="map" type="b2602c69:ProjectViewProjectNode" />
               <item name="mapB" type="462c0819:PsiDirectoryNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="map" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mapB" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="two" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -206,12 +234,13 @@
       <workItem from="1554296949601" duration="6426000" />
       <workItem from="1554340954605" duration="10515000" />
       <workItem from="1554426085463" duration="524000" />
-      <workItem from="1554461312033" duration="1512000" />
+      <workItem from="1554461312033" duration="10950000" />
+      <workItem from="1554515587538" duration="3952000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55309000" />
+    <option name="totallyTimeSpent" value="68699000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -226,19 +255,19 @@
     <frame x="0" y="34" width="1600" height="866" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Structure" order="0" sideWeight="0.8741573" side_tool="true" visible="true" weight="0.26512226" />
+      <window_info id="Structure" order="0" sideWeight="0.6259542" side_tool="true" visible="true" weight="0.26898327" />
       <window_info id="Favorites" order="1" sideWeight="0.5013405" side_tool="true" weight="0.31193838" />
-      <window_info content_ui="combo" x="-71" y="123" width="1600" height="866" id="Project" order="2" sideWeight="0.12584269" visible="true" weight="0.26512226" />
+      <window_info content_ui="combo" x="-71" y="123" width="1600" height="866" id="Project" order="2" sideWeight="0.3740458" visible="true" weight="0.26898327" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4993565" weight="0.21409214" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.31436315" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4993565" visible="true" weight="0.11246613" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.38753387" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3292683" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
-      <window_info active="true" anchor="bottom" id="Messages" order="8" visible="true" weight="0.39701897" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3292683" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.39701897" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3888889" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.3292683" />
       <window_info anchor="bottom" id="CMake" order="11" weight="0.3292683" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5006435" side_tool="true" weight="0.34823847" />
@@ -268,12 +297,12 @@
     </expressions>
     <expressions id="watch">
       <expression>
-        <expression-string>mm.at(Key(tmp))</expression-string>
+        <expression-string>map</expression-string>
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>map</expression-string>
+        <expression-string>mm.at(Key(tmp))</expression-string>
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -300,6 +329,33 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/data/three/code.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="216" column="4" selection-start-line="216" selection-start-column="4" selection-end-line="216" selection-end-column="4" />
+          <folding>
+            <element signature="e#27#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/four/code.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="63" selection-start-line="63" selection-end-line="63" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/five/code.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/exceptions.hpp">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -312,28 +368,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
+        <state relative-caret-position="220">
+          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/map.hpp">
+    <entry file="file://$PROJECT_DIR$/data/two/code.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-29">
-          <caret line="464" column="8" selection-start-line="464" selection-start-column="8" selection-end-line="464" selection-end-column="8" />
+        <state relative-caret-position="180">
+          <caret line="480" column="26" selection-start-line="480" selection-start-column="26" selection-end-line="480" selection-end-column="26" />
           <folding>
-            <element signature="e#115#136#0" expanded="true" />
-            <element signature="e#232#289#0" expanded="true" />
+            <element signature="e#28#47#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/one/code.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="110" column="28" lean-forward="true" selection-start-line="110" selection-start-column="28" selection-end-line="110" selection-end-column="28" />
+        <state relative-caret-position="210">
+          <caret line="102" column="40" selection-start-line="102" selection-start-column="40" selection-end-line="102" selection-end-column="40" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/map.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="752" column="30" selection-start-line="752" selection-start-column="30" selection-end-line="752" selection-end-column="30" />
+          <folding>
+            <element signature="e#115#136#0" expanded="true" />
+            <element signature="e#232#289#0" expanded="true" />
           </folding>
         </state>
       </provider>
