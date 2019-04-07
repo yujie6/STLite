@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="vector" targetName="deque" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9ddc6514-1437-4d3c-b557-08c55c8f6093" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../mapB/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mapB/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mapB/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../mapB/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mapB/build/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../mapB/build/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mapB/build/CMakeFiles/map.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/../mapB/build/CMakeFiles/map.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mapB/build/CMakeFiles/map.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../mapB/build/CMakeFiles/map.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mapB/build/CMakeFiles/map.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../mapB/build/CMakeFiles/map.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mapB/build/CMakeFiles/map.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../mapB/build/CMakeFiles/map.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mapB/build/CMakeFiles/map.dir/data/one/code.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mapB/build/CMakeFiles/map.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/../mapB/build/CMakeFiles/map.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mapB/build/CMakeFiles/map.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../mapB/build/CMakeFiles/map.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mapB/build/CMakeFiles/map.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../mapB/build/CMakeFiles/map.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mapB/build/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../mapB/build/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mapB/build/MyAns.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../mapB/build/MyAns.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mapB/build/map" beforeDir="false" afterPath="$PROJECT_DIR$/../mapB/build/map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mapB/cmake-build-debug/CMakeFiles/map.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/../mapB/cmake-build-debug/CMakeFiles/map.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mapB/cmake-build-debug/CMakeFiles/map.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../mapB/cmake-build-debug/CMakeFiles/map.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mapB/cmake-build-debug/CMakeFiles/map.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../mapB/cmake-build-debug/CMakeFiles/map.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mapB/cmake-build-debug/CMakeFiles/map.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../mapB/cmake-build-debug/CMakeFiles/map.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mapB/cmake-build-debug/CMakeFiles/map.dir/data/five/code.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../mapB/cmake-build-debug/CMakeFiles/map.dir/data/five/code.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mapB/cmake-build-debug/CMakeFiles/map.dir/data/four/code.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../mapB/cmake-build-debug/CMakeFiles/map.dir/data/four/code.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mapB/cmake-build-debug/CMakeFiles/map.dir/data/one/code.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../mapB/cmake-build-debug/CMakeFiles/map.dir/data/one/code.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mapB/cmake-build-debug/CMakeFiles/map.dir/data/two/code.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mapB/cmake-build-debug/CMakeFiles/map.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/../mapB/cmake-build-debug/CMakeFiles/map.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mapB/cmake-build-debug/CMakeFiles/map.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../mapB/cmake-build-debug/CMakeFiles/map.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mapB/cmake-build-debug/CMakeFiles/map.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../mapB/cmake-build-debug/CMakeFiles/map.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mapB/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../mapB/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mapB/cmake-build-debug/map" beforeDir="false" afterPath="$PROJECT_DIR$/../mapB/cmake-build-debug/map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mapB/cmake-build-debug/map.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/../mapB/cmake-build-debug/map.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mapB/data/five/code.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../mapB/data/five/code.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mapB/data/one/.answer.txt.swp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mapB/data/one/code.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../mapB/data/one/code.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mapB/data/two/code.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../mapB/data/two/code.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mapB/map.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../mapB/map.hpp" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/deque.hpp">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/data/one/code.cpp">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="5" />
+    <option name="y" value="115" />
+    <option name="width" value="1905" />
+    <option name="height" value="942" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="vector" type="b2602c69:ProjectViewProjectNode" />
+              <item name="deque" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vector" type="b2602c69:ProjectViewProjectNode" />
+              <item name="deque" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vector" type="b2602c69:ProjectViewProjectNode" />
+              <item name="deque" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="one" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.gutterIcons" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="deque" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="vector" TARGET_NAME="deque" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="vector" RUN_TARGET_NAME="deque">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9ddc6514-1437-4d3c-b557-08c55c8f6093" name="Default Changelist" comment="" />
+      <created>1554606214036</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1554606214036</updated>
+      <workItem from="1554606215179" duration="397000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="397000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="34" width="1600" height="866" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24967825" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="CMake" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/deque.hpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/one/code.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+  </component>
+</project>

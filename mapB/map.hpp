@@ -33,13 +33,15 @@ public:
         node * right;
         value_type data;
         int height;
-        node(value_type element=value_type(Key(0),T(1)), node* l=NULL, node* r=NULL, int h=1):left(l), right(r), data(element), height
+        node(value_type element=value_type(Key(0),T(1)), node* l=nullptr, node* r=nullptr, int h=1):left(l), right(r), data(element), height
                 (h){}
 
     };
 private:
     node * root;
     node * tail;
+    node ** wannadelete;
+    int DeleteNum;
     int length;
 
 public:
@@ -101,18 +103,18 @@ public:
 		iterator operator++(int) {
 		    if (origin == tail) throw(invalid_iterator());
 		    node * t = origin;
-            Key ans = origin->data.first;
-		    Key Current_Key = ans;
+            Key ans(origin->data.first);
+		    Key * Current_Key = &ans;
             node * tmp = root;
             int flag = 0;
             while(true) {
-                if (tmp == NULL) break;
+                if (tmp == nullptr) break;
                 if (Fewer(ans, tmp->data.first)) {
                     if (flag) {
-                        if (Fewer(tmp->data.first, Current_Key))
-                            Current_Key = tmp->data.first;
+                        if (Fewer(tmp->data.first, *Current_Key))
+                            Current_Key = &tmp->data.first;
                     }
-                    else Current_Key = tmp->data.first;
+                    else Current_Key = &tmp->data.first;
                     tmp = tmp->left;
                     flag = 1;
                 } else {
@@ -122,11 +124,13 @@ public:
             if (!flag) {
                 origin = tail;
                 iterator Ans(t, root, tail);
+                //delete(Current_Key);
                 return Ans;
             }
-            node * next = Find(Current_Key);
+            node * next = Find(*Current_Key);
             origin = next;
             iterator Ans(t, root, tail);
+            //delete(Current_Key);
             return Ans;
 		}
 		/**
@@ -134,18 +138,18 @@ public:
 		 */
 		iterator & operator++() {
             if (origin == tail) throw(invalid_iterator());
-            Key ans = origin->data.first;
-            Key Current_Key = ans;
+            Key ans(origin->data.first);
+            Key * Current_Key = &ans;
             node * tmp = root;
             int flag = 0;
             while(true) {
-                if (tmp == NULL) break;
+                if (tmp == nullptr) break;
                 if (Fewer(ans, tmp->data.first)) {
                     if (flag) {
-                        if (Fewer(tmp->data.first, Current_Key))
-                            Current_Key = tmp->data.first;
+                        if (Fewer(tmp->data.first, *Current_Key))
+                            Current_Key = &tmp->data.first;
                     }
-                    else Current_Key = tmp->data.first;
+                    else Current_Key = &tmp->data.first;
                     tmp = tmp->left;
                     flag = 1;
                 } else {
@@ -154,10 +158,12 @@ public:
             }
             if (!flag) {
                 origin = tail;
+                //delete(Current_Key);
                 return *this;
             }
-            node * next = Find(Current_Key);
+            node * next = Find(*Current_Key);
             origin = next;
+            //delete(Current_Key);
             return *this;
 		}
 		/**
@@ -165,35 +171,49 @@ public:
 		 */
 
         node * Begin() {
+            if (root == nullptr) return tail;
             node * tmp = root;
-            while (tmp->left != NULL) tmp = tmp->left;
+            while (tmp->left != nullptr) tmp = tmp->left;
+            return tmp;
+        }
+        node * End(){
+            if (root == nullptr) return tail;
+            node * tmp = root;
+            while (tmp->right != nullptr) tmp = tmp->right;
             return tmp;
         }
 
 		iterator operator--(int) {
 		    if (origin == Begin()) throw(invalid_iterator());
-		    node * t = origin;
-            Key ans = origin->data.first;
-            Key Current_Key = ans;
+            node * t = origin;
+		    if (origin == tail){
+		        origin = End();
+		        iterator Ans(t, root, tail);
+		        return Ans;
+		    }
+
+            Key ans(origin->data.first);
+            Key * Current_Key = &ans;
             node * tmp = root;
             int flag = 0;
             while(true) {
-                if (tmp == NULL) break;
+                if (tmp == nullptr) break;
                 if (Fewer(tmp->data.first, ans)) {
                     if (flag) {
-                        if (Fewer(Current_Key, tmp->data.first))
-                            Current_Key = tmp->data.first;
+                        if (Fewer(*Current_Key, tmp->data.first))
+                            Current_Key = &tmp->data.first;
                     }
-                    else Current_Key = tmp->data.first;
+                    else Current_Key = &tmp->data.first;
                     tmp = tmp->right;
                     flag = 1;
                 } else {
                     tmp = tmp->left;
                 }
             }
-            node * next = Find(Current_Key);
+            node * next = Find(*Current_Key);
             origin = next;
             iterator Ans(t, root, tail);
+            //delete(Current_Key);
             return Ans;
 		}
 		/**
@@ -201,26 +221,31 @@ public:
 		 */
 		iterator & operator--() {
             if (origin == Begin()) throw(invalid_iterator());
-            Key ans = origin->data.first;
-            Key Current_Key = ans;
+            if (origin == tail){
+                origin = End();
+                return *this;
+            }
+            Key ans(origin->data.first);
+            Key * Current_Key = &ans;
             node * tmp = root;
             int flag = 0;
             while(true) {
-                if (tmp == NULL) break;
+                if (tmp == nullptr) break;
                 if (Fewer(tmp->data.first, ans)) {
                     if (flag) {
-                        if (Fewer(Current_Key, tmp->data.first))
-                            Current_Key = tmp->data.first;
+                        if (Fewer(*Current_Key, tmp->data.first))
+                            Current_Key = &tmp->data.first;
                     }
-                    else Current_Key = tmp->data.first;
+                    else Current_Key = &tmp->data.first;
                     tmp = tmp->right;
                     flag = 1;
                 } else {
                     tmp = tmp->left;
                 }
             }
-            node * next = Find(Current_Key);
+            node * next = Find(*Current_Key);
             origin = next;
+            //delete(Current_Key);
             return *this;
 		}
 		/**
@@ -246,11 +271,11 @@ public:
 		}
         node * Find(const Key &x) {
             node * t = root;
-            while(t != NULL && Notequal(t->data.first, x) ){
+            while(t != nullptr && Notequal(t->data.first, x) ){
                 if (Fewer(x, t->data.first)) t = t->left;
                 else t = t->right;
             }
-            if (t == NULL) throw(index_out_of_bound());
+            if (t == nullptr) throw(index_out_of_bound());
             return t;
         }
 
@@ -292,26 +317,33 @@ public:
             }
 
             node * Begin() {
+                if (root == nullptr) return tail;
                 node * tmp = root;
-                while (tmp->left != NULL) tmp = tmp->left;
+                while (tmp->left != nullptr) tmp = tmp->left;
+                return tmp;
+            }
+            node * End(){
+                if (root == nullptr) return tail;
+                node * tmp = root;
+                while (tmp->right != nullptr) tmp = tmp->right;
                 return tmp;
             }
 
             const_iterator operator++(int) {
                 if (origin == tail) throw(invalid_iterator());
                 node * t = origin;
-                Key ans = origin->data.first;
-                Key Current_Key = ans;
+                Key ans(origin->data.first);
+                Key * Current_Key = &ans;
                 node * tmp = root;
                 int flag = 0;
                 while(true) {
-                    if (tmp == NULL) break;
+                    if (tmp == nullptr) break;
                     if (Fewer(ans, tmp->data.first)) {
                         if (flag) {
-                            if (Fewer(tmp->data.first, Current_Key))
-                                Current_Key = tmp->data.first;
+                            if (Fewer(tmp->data.first, *Current_Key))
+                                Current_Key = &tmp->data.first;
                         }
-                        else Current_Key = tmp->data.first;
+                        else Current_Key = &tmp->data.first;
                         tmp = tmp->left;
                         flag = 1;
                     } else {
@@ -321,11 +353,13 @@ public:
                 if (!flag) {
                     t = tail;
                     iterator Ans(t, root, tail);
+                    //delete(Current_Key);
                     return Ans;
                 }
-                node * next = Find(Current_Key);
+                node * next = Find(*Current_Key);
                 origin = next;
                 const_iterator Ans(t, root, tail);
+                //delete(Current_Key);
                 return Ans;
             }
             /**
@@ -335,22 +369,22 @@ public:
                 if (origin == tail) throw(invalid_iterator());
                 if (origin == root){
                     node * tmp = origin->right;
-                    while(tmp->left != NULL) tmp = tmp->left;
+                    while(tmp->left != nullptr) tmp = tmp->left;
                     origin = tmp;
                     return *this;
                 }
-                Key ans = origin->data.first;
-                Key Current_Key = ans;
+                Key ans(origin->data.first);
+                Key * Current_Key = &ans;
                 node * tmp = root;
                 int flag = 0;
                 while(true) {
-                    if (tmp == NULL) break;
+                    if (tmp == nullptr) break;
                     if (Fewer(ans, tmp->data.first)) {
                         if (flag) {
-                            if (Fewer(tmp->data.first, Current_Key))
-                                Current_Key = tmp->data.first;
+                            if (Fewer(tmp->data.first, *Current_Key))
+                                Current_Key = &tmp->data.first;
                         }
-                        else Current_Key = tmp->data.first;
+                        else Current_Key = &tmp->data.first;
                         tmp = tmp->left;
                         flag = 1;
                     } else {
@@ -359,10 +393,12 @@ public:
                 }
                 if (!flag) {
                     origin = tail;
+                    //delete(Current_Key);
                     return *this;
                 }
-                node * next = Find(Current_Key);
+                node * next = Find(*Current_Key);
                 origin = next;
+                //delete(Current_Key);
                 return *this;
             }
             /**
@@ -371,27 +407,33 @@ public:
             const_iterator operator--(int) {
                 if (origin == Begin()) throw(invalid_iterator());
                 node * t = origin;
-                Key ans = origin->data.first;
-                Key Current_Key = ans;
+                if (origin == tail){
+                    origin = End();
+                    iterator Ans(t, root, tail);
+                    return Ans;
+                }
+                Key ans(origin->data.first);
+                Key * Current_Key = &ans;
                 node * tmp = root;
                 int flag = 0;
                 while(true) {
-                    if (tmp == NULL) break;
+                    if (tmp == nullptr) break;
                     if (Fewer(tmp->data.first, ans)) {
                         if (flag) {
-                            if (Fewer(Current_Key, tmp->data.first))
-                                Current_Key = tmp->data.first;
+                            if (Fewer(*Current_Key, tmp->data.first))
+                                Current_Key = &tmp->data.first;
                         }
-                        else Current_Key = tmp->data.first;
+                        else Current_Key = &tmp->data.first;
                         tmp = tmp->right;
                         flag = 1;
                     } else {
                         tmp = tmp->left;
                     }
                 }
-                node * next = Find(Current_Key);
+                node * next = Find(*Current_Key);
                 origin = next;
                 const_iterator Ans(t, root, tail);
+                //delete(Current_Key);
                 return Ans;
             }
             /**
@@ -399,26 +441,31 @@ public:
              */
             const_iterator & operator--() {
                 if (origin == Begin()) throw(invalid_iterator());
-                Key ans = origin->data.first;
-                Key Current_Key = ans;
+                if (origin == tail){
+                    origin = End();
+                    return *this;
+                }
+                Key ans(origin->data.first);
+                Key * Current_Key = &ans;
                 node * tmp = root;
                 int flag = 0;
                 while(true) {
-                    if (tmp == NULL) break;
+                    if (tmp == nullptr) break;
                     if (Fewer(tmp->data.first, ans)) {
                         if (flag) {
-                            if (Fewer(Current_Key, tmp->data.first))
-                                Current_Key = tmp->data.first;
+                            if (Fewer(*Current_Key, tmp->data.first))
+                                Current_Key = &tmp->data.first;
                         }
-                        else Current_Key = tmp->data.first;
+                        else Current_Key = &tmp->data.first;
                         tmp = tmp->right;
                         flag = 1;
                     } else {
                         tmp = tmp->left;
                     }
                 }
-                node * next = Find(Current_Key);
+                node * next = Find(*Current_Key);
                 origin = next;
+                //delete(Current_Key);
                 return *this;
             }
             bool operator==(const iterator &rhs) const {
@@ -448,22 +495,29 @@ public:
             }
             node * Find(const Key &x) {
                 node * t = root;
-                while(t != NULL && Notequal(t->data.first, x) ){
+                while(t != nullptr && Notequal(t->data.first, x) ){
                     if (Fewer(x, t->data.first)) t = t->left;
                     else t = t->right;
                 }
-                if (t == NULL) throw(index_out_of_bound());
+                if (t == nullptr) throw(index_out_of_bound());
                 return t;
             }
 	};
 	/**
 	 * TODO two constructors
 	 */
-	map() {root = NULL; length = 0; tail = new node();}
+	map() {
+	    root = nullptr; length = 0;
+	    tail = nullptr;
+	    wannadelete = new node* [11000];
+	    DeleteNum = 0;
+	}
 	map(const map &other) {
         root = copy(other.root);
         length = other.length;
         tail = copy(other.tail);
+        wannadelete = new node* [11000];
+        DeleteNum = 0;
 	}
 	/**
 	 * TODO assignment operator
@@ -472,7 +526,7 @@ public:
 	    if (this == &other) return *this;
 	    clear();
         root = copy(other.root);
-        if(tail == NULL) tail = new node();
+        if(tail == nullptr) tail = new node();
         length = other.length;
 
         return *this;
@@ -480,7 +534,11 @@ public:
 	/**
 	 * TODO Destructors
 	 */
-	~map() {clear(); delete(tail);}
+	~map() {
+	    clear(); delete(tail);
+	    for (int i = 0; i < DeleteNum; i++) delete wannadelete[i];
+	    delete [] wannadelete;
+	}
 	/**
 	 * TODO
 	 * access specified element with bounds checking
@@ -536,14 +594,14 @@ public:
 	iterator begin() {
 	    if (length == 0) return iterator(tail,root,tail);
 	    node * tmp = root;
-	    while (tmp->left != NULL) tmp = tmp->left;
+	    while (tmp->left != nullptr) tmp = tmp->left;
 	    iterator ans(tmp, root, tail);
 	    return ans;
 	}
 	const_iterator cbegin() const {
         if (length == 0) return iterator(tail,root,tail);
         node * tmp = root;
-        while (tmp->left != NULL) tmp = tmp->left;
+        while (tmp->left != nullptr) tmp = tmp->left;
         const_iterator ans(tmp, root, tail);
         return ans;
 	}
@@ -575,7 +633,7 @@ public:
 	 */
 	void clear() {
 	    make_empty(root); length = 0;
-	    root = NULL;
+	    root = nullptr;
 	}
 	/**
 	 * insert an element.
@@ -584,7 +642,7 @@ public:
 	 *   the second one is true if insert successfully, or false.
 	 */
 	pair<iterator, bool> insert(const value_type &value) {
-	    if (Find(value.first) != NULL) {
+	    if (Find(value.first) != nullptr) {
 	        iterator ans(Find(value.first), root, tail);
             pair<iterator, bool> aa(ans, false);
             return aa;
@@ -605,7 +663,9 @@ public:
 	 */
 	void erase(iterator pos) {
 	    length--;
-	    Key aa = pos->first;
+	    if (root != pos.root) throw(invalid_iterator());
+	    if (pos == end()) throw(runtime_error());
+	    Key aa(pos->first);
         remove(aa);
 	}
 
@@ -623,7 +683,7 @@ public:
 	 * The default method of check the equivalence is !(a < b || b > a)
 	 */
 	size_t count(const Key &key) const {
-	    if (Find(key) == NULL) return 0;
+	    if (Find(key) == nullptr) return 0;
 	    else return 1;
 	}
 	/**
@@ -634,7 +694,7 @@ public:
 	 */
 	iterator find(const Key &key) {
         node * p = Find(key);
-        if (p == NULL){
+        if (p == nullptr){
             return end();
         }
         iterator ans(p, root, tail);
@@ -642,7 +702,7 @@ public:
 	}
 	const_iterator find(const Key &key) const {
         node * p = Find(key);
-        if (p == NULL){
+        if (p == nullptr){
             return cend();
         }
         const_iterator ans(p, root, tail);
@@ -651,35 +711,84 @@ public:
 
 private:
     node* copy(const node * other){
-	    if (other == NULL) return NULL;
+	    if (other == nullptr) return nullptr;
 	    Key data1(other->data.first); T data2(other->data.second);
         value_type NewValue(data1, data2);
         node * tmp = new node( NewValue, copy(other->left), copy(other->right), height(other) );
 	    return tmp;
 	}
+
+	node * FindParent(node * p, int & D){
+	    Key x(p->data.first);
+	    node * t = root;
+        while(t != nullptr && const_cast<map*>(this)->Notequal(t->data.first, x) ){
+            if (const_cast<map*>(this)->Fewer(x, t->data.first)) {
+                if (t->left == p) {D = 0; break;}
+                t = t->left;
+            }
+            else {
+                if (t->right == p) {D = 1; break;}
+                t = t->right;
+            }
+        }
+        return t;
+	}
+
+	void SwapNode(node * &t, node * &tmp){
+	    int flag = 0; node * cur = t; node * p;
+        if (cur != root) p = FindParent(t, flag);
+        if(cur == root) {
+            node *r1 = t->right;
+            node *l1 = t->left;
+            int h1 = t->height;
+            value_type data2(tmp->data);
+            delete t;
+            t = new node(data2, l1, r1, h1);
+        }
+        else {
+            node *r1 = t->right;
+            node *l1 = t->left;
+            int h1 = t->height;
+            value_type data2(tmp->data);
+            delete t;
+            t = new node(data2, l1, r1, h1);
+            if (flag) p->right = t;
+            else p->left = t;
+        }
+	}
+
     bool remove( Key x, node * &t){
-        if (t == NULL) return true;
+        if (t == nullptr) return true;
         if ( !Notequal(x, t->data.first) ){
-            if (t->left == NULL || t->right == NULL){
+            if (t->left == nullptr || t->right == nullptr){
                 //t has 1 child
                 node * OldNode = t;
-                if (t->left != NULL) t = t->left;
-                else t = t->right;
-                delete OldNode;
+                /*if (OldNode != root) {
+                    int flag = 0;
+                    node *p = FindParent(OldNode, flag);
+                    if (flag) p->right = nullptr;
+                    else p->left = nullptr;
+                }*/
+                t = (t->left != nullptr)? t->left : t->right;
+                wannadelete[DeleteNum] = OldNode; DeleteNum++;
                 return false;//t->height has changed
             }
             else {//t has 2 child
                 node * tmp = t->right;
-                while(tmp->left != NULL) tmp = tmp->left;
-                t->data.first = tmp->data.first;
-                t->data.second = tmp->data.second;
+                while(tmp->left != nullptr) tmp = tmp->left;
+                //TODO check the '='
+                SwapNode(t, tmp);
+
+                //t->data.first = tmp->data.first;
+                //t->data.second = tmp->data.second;
                 if (remove(tmp->data.first, t->right)) return true;
                 return adjust(t, 1);
             }
         }
-        else if (Fewer(x, t->data.first)){
+
+        if (Fewer(x, t->data.first)){
             if (remove(x, t->left)) return true; //remove successfully
-            return adjust(t, 0);        //not successful, need to adjust. //
+                return adjust(t, 0);        //not successful, need to adjust. //
             // may keep adjusting until ok
         }
         else {
@@ -689,7 +798,7 @@ private:
     }
 
     void insert(const value_type &value, node * &t){
-        if (t == NULL) t = new node(value, NULL, NULL);
+        if (t == nullptr) t = new node(value);
         else
         if(Fewer(value.first, t->data.first)){
             insert(value, t->left);
@@ -709,25 +818,27 @@ private:
     }
 
 	void make_empty(node * p){
-	    if (p == NULL) return;
+	    if (p == nullptr) return;
 	    make_empty(p->left);
 	    make_empty(p->right);
 	    delete p;
 	}
-	int height( node * &t) const{ return (t == NULL) ? 0 : t->height; }
-    int height(const node * &t) const{ return (t == NULL) ? 0 : t->height; }
+	int height( node * t) const{ return (t == nullptr) ? 0 : t->height; }
+    int height(const node * t) const{ return (t == nullptr) ? 0 : t->height; }
 
 	node * Find(const Key &x) const{
 	    node * t = root;
-	    while(t != NULL && const_cast<map*>(this)->Notequal(t->data.first, x) ){
+	    while(t != nullptr && const_cast<map*>(this)->Notequal(t->data.first, x) ){
 	        if (const_cast<map*>(this)->Fewer(x, t->data.first)) t = t->left;
 	        else t = t->right;
 	    }
-	    //if (t == NULL) throw(index_out_of_bound());
+	    //if (t == nullptr) throw(index_out_of_bound());
         return t;
 	}
 	void LL(node * &t){
+	    if (t == nullptr) return;
 	    node * l = t->left;
+	    if (l == nullptr) return;
 	    t->left = l->right;
 	    l->right = t;
 	    t->height = max(height(t->right),height(t->left)) + 1;
@@ -735,14 +846,17 @@ private:
         t = l;
 	}
     void LR(node * &t){
+	    if (t == nullptr) return;
 	    RR(t->left);
 	    LL(t);
 	}
     void RL(node * &t){
+        if (t == nullptr) return;
 	    LL(t->right);
 	    RR(t);
 	}
     void RR(node * &t){
+        if (t == nullptr || t->right == nullptr) return;
 	    node * r = t->right;
 	    t->right = r->left;
 	    r->left = t;
@@ -752,8 +866,9 @@ private:
 	}
 	bool adjust(node * &t, int SubTree){
 	    if (SubTree){
-	        if (height(t->left) - height(t->right) == 1) return true;
+	        if (height(t->left) - height(t->right) == 1 || height(t->right) - height(t->left) == 1) return true;
 	        if (height(t->left) == height(t->right)) {t->height-- ; return false;}
+            if (t->left == nullptr) {return height(t->right) != height(t->left);}
 	        if (height(t->left->right) > height(t->left->left) ){
 	            LR(t); return false;
 	        }
@@ -761,8 +876,9 @@ private:
             return (height(t->left) != height(t->right));
 	    }
 	    else {
-	        if (height(t->right) - height(t->left) == 1) return true;
+	        if (height(t->right) - height(t->left) == 1 || height(t->left) - height(t->right) == 1) return true;
 	        if (height(t->left) == height(t->right)) {t->height--; return false;}
+	        if (t->right == nullptr) {return height(t->right) != height(t->left);}
 	        if (height(t->right->left) > height(t->right->right)){
 	            RL(t); return false;
 	        }

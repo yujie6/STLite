@@ -116,7 +116,7 @@ void test_const_at(){
 			std::cout<<(mm.at(Key(tmp))).num()<<' ';
 		}catch(...){}
 	}
-	std::cout << std::endl;
+	//std::cout << std::endl;
 	for(int i=1;i<=num;i++){
 		int tmp(rand() % 10000);
 		try{
@@ -251,8 +251,8 @@ int main(){
 	test_const_at();
 	test_count();
 	test_find();
-    test_throw();
-    test_const_throw();
+    //test_throw();
+    //test_const_throw();
 	test_copy();
 
 	//test_iterator();

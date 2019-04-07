@@ -6,14 +6,26 @@
 
 #IncludeRegexTransform: 
 
-/home/yujie6/Documents/Algorithm/DataStructure/STLite/mapB/data/one/code.cpp
+/home/yujie6/Documents/Algorithm/DataStructure/STLite/mapB/data/five/code.cpp
 iostream
+-
+map
+-
+ctime
+-
+queue
+-
+cmath
+-
+vector
 -
 cstdio
 -
-algorithm
+cstdlib
 -
 cstring
+-
+algorithm
 -
 ../../map.hpp
 /home/yujie6/Documents/Algorithm/DataStructure/STLite/mapB/map.hpp

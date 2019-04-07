@@ -429,10 +429,11 @@ bool check11(){
 	p = Q.at("lucky");
 	if(p != 325) return 0;
 	int OK = 0;
+
 	try{
 		p = Q.at("dd");
 	}
-	catch(...) {OK++;}
+	catch(...) {OK++; }
 	sjtu::map<string, int> :: iterator it;
 	try{
 		it = Q.find("ok");

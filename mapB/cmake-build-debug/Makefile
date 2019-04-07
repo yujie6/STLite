@@ -123,32 +123,32 @@ map/fast:
 	$(MAKE) -f CMakeFiles/map.dir/build.make CMakeFiles/map.dir/build
 .PHONY : map/fast
 
-data/one/code.o: data/one/code.cpp.o
+data/five/code.o: data/five/code.cpp.o
 
-.PHONY : data/one/code.o
+.PHONY : data/five/code.o
 
 # target to build an object file
-data/one/code.cpp.o:
-	$(MAKE) -f CMakeFiles/map.dir/build.make CMakeFiles/map.dir/data/one/code.cpp.o
-.PHONY : data/one/code.cpp.o
+data/five/code.cpp.o:
+	$(MAKE) -f CMakeFiles/map.dir/build.make CMakeFiles/map.dir/data/five/code.cpp.o
+.PHONY : data/five/code.cpp.o
 
-data/one/code.i: data/one/code.cpp.i
+data/five/code.i: data/five/code.cpp.i
 
-.PHONY : data/one/code.i
+.PHONY : data/five/code.i
 
 # target to preprocess a source file
-data/one/code.cpp.i:
-	$(MAKE) -f CMakeFiles/map.dir/build.make CMakeFiles/map.dir/data/one/code.cpp.i
-.PHONY : data/one/code.cpp.i
+data/five/code.cpp.i:
+	$(MAKE) -f CMakeFiles/map.dir/build.make CMakeFiles/map.dir/data/five/code.cpp.i
+.PHONY : data/five/code.cpp.i
 
-data/one/code.s: data/one/code.cpp.s
+data/five/code.s: data/five/code.cpp.s
 
-.PHONY : data/one/code.s
+.PHONY : data/five/code.s
 
 # target to generate assembly for a file
-data/one/code.cpp.s:
-	$(MAKE) -f CMakeFiles/map.dir/build.make CMakeFiles/map.dir/data/one/code.cpp.s
-.PHONY : data/one/code.cpp.s
+data/five/code.cpp.s:
+	$(MAKE) -f CMakeFiles/map.dir/build.make CMakeFiles/map.dir/data/five/code.cpp.s
+.PHONY : data/five/code.cpp.s
 
 # Help Target
 help:
@@ -159,9 +159,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... map"
 	@echo "... edit_cache"
-	@echo "... data/one/code.o"
-	@echo "... data/one/code.i"
-	@echo "... data/one/code.s"
+	@echo "... data/five/code.o"
+	@echo "... data/five/code.i"
+	@echo "... data/five/code.s"
 .PHONY : help
 
 
