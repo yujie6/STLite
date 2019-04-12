@@ -450,9 +450,10 @@ public:
 	 * throw if the container is empty, the iterator is invalid or it points to a wrong place.
 	 */
 	iterator erase(iterator pos) {
+	    if (CurrentLen == 0) throw(container_is_empty());
 	    Block * p = pos.origin; int index = pos.pos;
-	    if (index > p->size || index < 0) throw(invalid_iterator());
-	    split(pos);
+	    if (index >= p->size || index < 0) throw(invalid_iterator());
+	    split(pos+1);
 	    p->size--;
 	    CurrentLen--;
 	    merge(p);

@@ -155,8 +155,10 @@ void TestInsertAndErase()
 	vInt.erase(vInt.begin() + 2333);
 	dInt.erase(dInt.begin() + 2333);
 	for (long long i = 0; i < N; ++i) {
-		if (!(*(dInt.begin() + i) == vInt[i]))
-			error();
+		if (!(*(dInt.begin() + i) == vInt[i])){
+			std::cout << "\nError Here -->" << i << std::endl;
+		    error();
+		}
 	}
 	std::cout << "Correct." << std::endl;
 }
@@ -189,10 +191,14 @@ void TestPopAndPush()
 	}
 	for (size_t i = 0; i < 1007LL; ++i)
 	{
-		if (!(dInt[i] == vInt[i]))
-			error();
-		if (!(drInt[1006LL - i] == rInt[i]))
-			error();
+		/*if (!(dInt[i] == vInt[i])) {
+            std::cout << "\nDamn it (1) Error Here -->" << i << std::endl;
+		    error();
+        }*/
+		if (!(drInt[1006LL - i] == rInt[i])) {
+            std::cout << "\nDamn it (2) Error Here -->" << i << std::endl;
+            error();
+        }
 	}
 	
 	std::cout << "Correct." << std::endl;
@@ -207,8 +213,8 @@ int main()
 	TestCopyConstructorAndOperatorEqu();
 	TestIteratorSequenceAccess();
 	TestIteratorRandomAccess();
-	//TestInsertAndErase();
-	//TestPopAndPush();
+	TestInsertAndErase();
+	TestPopAndPush();
 	std::cout << "Congratulations. Your submission has passed all correctness tests. Use valgrind to ensure that there ain't any memory leaks in your deque. Good job! :)" << std::endl;
 	return 0;
 }
