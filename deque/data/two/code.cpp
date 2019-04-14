@@ -6,10 +6,10 @@
 #include <deque>
 #include <random>
 
-#include "class-integer.hpp"
-#include "class-matrix.hpp"
-#include "class-bint.hpp"
-#include "deque.hpp"
+#include "../class-integer.hpp"
+#include "../class-matrix.hpp"
+#include "../class-bint.hpp"
+#include "../../deque.hpp"
 
 std::default_random_engine randnum(time(NULL));
 
@@ -93,23 +93,45 @@ bool insertTest() {
     for (int i = 0; i < 100; i++) {
         int x = randnum();
         int pos = (ans.size() == 0 ? 0 : randnum() % ans.size());
-
         switch (randnum() % 2) {
-            case 0: deq.insert(deq.begin() + pos, x);
-                    ans.insert(ans.begin() + pos, x);
-                    break;
-            case 1: deq.insert(deq.end() - pos, x);
-                    ans.insert(ans.end() - pos, x);
-                    break;
+            case 0: {
+                deq.insert(deq.begin() + pos, x);
+                ans.insert(ans.begin() + pos, x);
+                /*for (auto i = deq.begin(); i != deq.end(); ++i){
+                    std::cout << *i << " ";
+                } std::cout << "\n";
+                for (auto i = ans.begin(); i != ans.end(); ++i){
+                    std::cout << *i << " ";
+                } std::cout << "\n";*/
+                break;
+            }
+            case 1: {
+                deq.insert(deq.end() - pos, x);
+                ans.insert(ans.end() - pos, x);
+                /*for (auto i = deq.begin(); i != deq.end(); ++i){
+                    std::cout << *i << " ";
+                } std::cout << "\n";
+                for (auto i = ans.begin(); i != ans.end(); ++i){
+                    std::cout << *i << " ";
+                } std::cout << "\n";*/
+                break;
+            }
         }
     }
+    /*std::cout << "\n";
+    for (auto i = deq.begin(); i != deq.end(); ++i){
+        std::cout << *i << " ";
+    } std::cout << "\n";
+    for (auto i = ans.begin(); i != ans.end(); ++i){
+        std::cout << *i << " ";
+    } std::cout << "\n";*/
 
     ans2.insert(ans2.begin(), 0x5d); ans3.insert(ans3.end(), 93);
     deq2.insert(deq2.begin(), 0x5d); deq3.insert(deq3.end(), 93);
 
     if (!isEqual(ans2, deq2) || !isEqual(ans3, deq3))
         return false;
-
+    //exit(0);
     return isEqual(ans, deq);
 }
 bool iteratorTest() {
@@ -444,7 +466,7 @@ bool nomercyTest() {
 }
 
 int main() {
-    bool (*testFunc[])()= {
+    bool (*testFunc[])()= { //function ptr
         pushTest, popTest, insertTest, iteratorTest,
         eraseTest, copyAndClearTest, memoryTest,
         nomercyTest,

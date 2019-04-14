@@ -184,18 +184,32 @@ void TestPopAndPush()
 		drInt.push_front(i);
 		rInt.push_back(i);
 	}
+
 	for (size_t i = 0; i < 107LL; ++i)
 	{
 		drInt.pop_front();
 		rInt.pop_back();
 	}
+	/**Debugging Here**/
+	/*std::cout << "\n";
+    for (size_t i = 0; i < 1007LL; ++i)
+    {
+        std::cout << rInt[i] << " ";
+    }
+    std::cout << "\n";
+    for (size_t i = 0; i < 1007LL; ++i)
+    {
+        std::cout << drInt[1006LL-i] << " ";
+    }
+    std::cout << "\n";*/
+    /**Debugging Here**/
 	for (size_t i = 0; i < 1007LL; ++i)
 	{
-		/*if (!(dInt[i] == vInt[i])) {
+		if (!(dInt[i] == vInt[i])) {
             std::cout << "\nDamn it (1) Error Here -->" << i << std::endl;
 		    error();
-        }*/
-		if (!(drInt[1006LL - i] == rInt[i])) {
+        }
+		if (!(drInt[1006LL - i] == rInt[i])) { //drInt[1003] wrong!
             std::cout << "\nDamn it (2) Error Here -->" << i << std::endl;
             error();
         }
