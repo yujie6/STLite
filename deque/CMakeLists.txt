@@ -2,6 +2,7 @@
 cmake_minimum_required(VERSION 3.10)
 PROJECT(vector LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
 #head file path
 #INCLUDE_DIRECTORIES(.)
 #AUX_SOURCE_DIRECTORY(src ../data/one)

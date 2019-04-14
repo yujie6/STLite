@@ -21,7 +21,7 @@ private:
         int MaxBlockSize;
         Block(){
             MaxBlockSize = 1000;
-            data = (T*)operator new(sizeof(T) * MaxBlockSize);
+            data = (T*)malloc(sizeof(T) * MaxBlockSize);
             size = 0;
         }
         Block(const Block * other){
@@ -65,6 +65,9 @@ public:
             Block * p = origin; int count = 0; int delta;
             if (n > deq->CurrentLen) throw(runtime_error());
             if (n == 0) return *this;
+            int now = FindIndex() + n;
+            if (now > deq->CurrentLen) {puts("damn"); throw(runtime_error());}
+            if (now == deq->CurrentLen) return iterator(deq->Tail, deq, deq->Tail->size);
             while(count < n){
                 if (p == origin){ delta = (p->size - pos);}
                 else delta = p->size;
@@ -147,7 +150,7 @@ public:
 		 * TODO iter++
 		 */
 		iterator operator++(int) {
-            if (origin == deq->Tail && pos == deq->Tail->size-1){
+            if (origin == deq->Tail && size_t(pos) == deq->Tail->size-1){
                 pos++;
                 return iterator(deq->Tail, deq, deq->Tail->size-1);
             }
@@ -484,13 +487,24 @@ public:
 	iterator insert(iterator pos, const T &value) {
 	    if (pos.deq != this) throw(runtime_error());
 	    Block * p = pos.origin; int index = pos.pos;
+	    if (pos == end()){
+	        push_back(value); return iterator(Tail, this, Tail->size-1);
+	    }
 	    if (index > p->size || index < 0) throw (invalid_iterator());
-	    split(pos);
-	    new(p->data+index)T(value);
-	    ++p->size;
-	    ++CurrentLen;
-	    merge(p);
-	    return iterator(p, this, index);
+	    if (p->size < MaxBlockSize) {
+            for (int i = p->size; i > index; i--) {
+                new(p->data + i)T(p->data[i - 1]);
+                p->data[i - 1].~T();
+            }
+            new(p->data + index)T(value); CurrentLen++; p->size++;
+            return iterator(p, this, p->size-1);
+        }
+	    else{
+	        split(pos); new(p->data+index)T(value);
+	        p->size++; CurrentLen++;
+	        return iterator(p, this, p->size-1);
+	    }
+
 	}
 	/**
 	 * removes specified element at pos.
@@ -516,16 +530,6 @@ public:
 	    if (p != Tail) merge(p);
 	    else if (p == Tail && p->size == 0 && Tail != Head) {Tail = p->prev; delete p;}
 	    return Findpos(k);
-	    /*if (index >= p->size || index < 0) { throw(invalid_iterator()); }
-
-        //if (Head != Tail || p != Head) merge(p->prev);
-        if (index != p->size) split(pos+1);
-	    p->data[index].~T();
-	    p->size--;
-	    CurrentLen--;
-
-	    merge(p);
-	    return Findpos(k);*/
 	}
 	/**
 	 * adds an element to the end
@@ -639,14 +643,17 @@ private:
 	    Block * p = t.origin; int pos = t.pos;
 	    if (p == Tail){
 	        Block * NewBlock = new Block();
+	        NewBlock->size = (p->size - pos);
             for (int i = 0; i < p->size-pos; i++){
                 new(NewBlock->data+i)T(p->data[i+pos]);
                 p->data[i+pos].~T();
             }
-            NewBlock->size = p->size - pos; p->size = pos;
-            p->next = NewBlock; NewBlock->prev = p; Tail = NewBlock;
+            p->size = pos;
+            p->next = NewBlock; NewBlock->prev = p;
+            Tail = NewBlock;
             return;
 	    }
+
 	    Block * nextp = p->next;
 	    Block * NewBlock = new Block();
 	    for (int i = 0; i < p->size-pos; i++){

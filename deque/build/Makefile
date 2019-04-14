@@ -123,32 +123,32 @@ deque/fast:
 	$(MAKE) -f CMakeFiles/deque.dir/build.make CMakeFiles/deque.dir/build
 .PHONY : deque/fast
 
-data/one/code.o: data/one/code.cpp.o
+data/three/code.o: data/three/code.cpp.o
 
-.PHONY : data/one/code.o
+.PHONY : data/three/code.o
 
 # target to build an object file
-data/one/code.cpp.o:
-	$(MAKE) -f CMakeFiles/deque.dir/build.make CMakeFiles/deque.dir/data/one/code.cpp.o
-.PHONY : data/one/code.cpp.o
+data/three/code.cpp.o:
+	$(MAKE) -f CMakeFiles/deque.dir/build.make CMakeFiles/deque.dir/data/three/code.cpp.o
+.PHONY : data/three/code.cpp.o
 
-data/one/code.i: data/one/code.cpp.i
+data/three/code.i: data/three/code.cpp.i
 
-.PHONY : data/one/code.i
+.PHONY : data/three/code.i
 
 # target to preprocess a source file
-data/one/code.cpp.i:
-	$(MAKE) -f CMakeFiles/deque.dir/build.make CMakeFiles/deque.dir/data/one/code.cpp.i
-.PHONY : data/one/code.cpp.i
+data/three/code.cpp.i:
+	$(MAKE) -f CMakeFiles/deque.dir/build.make CMakeFiles/deque.dir/data/three/code.cpp.i
+.PHONY : data/three/code.cpp.i
 
-data/one/code.s: data/one/code.cpp.s
+data/three/code.s: data/three/code.cpp.s
 
-.PHONY : data/one/code.s
+.PHONY : data/three/code.s
 
 # target to generate assembly for a file
-data/one/code.cpp.s:
-	$(MAKE) -f CMakeFiles/deque.dir/build.make CMakeFiles/deque.dir/data/one/code.cpp.s
-.PHONY : data/one/code.cpp.s
+data/three/code.cpp.s:
+	$(MAKE) -f CMakeFiles/deque.dir/build.make CMakeFiles/deque.dir/data/three/code.cpp.s
+.PHONY : data/three/code.cpp.s
 
 # Help Target
 help:
@@ -159,9 +159,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... deque"
 	@echo "... edit_cache"
-	@echo "... data/one/code.o"
-	@echo "... data/one/code.i"
-	@echo "... data/one/code.s"
+	@echo "... data/three/code.o"
+	@echo "... data/three/code.i"
+	@echo "... data/three/code.s"
 .PHONY : help
 
 
