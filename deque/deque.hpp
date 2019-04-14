@@ -21,7 +21,7 @@ private:
         int MaxBlockSize;
         Block(){
             MaxBlockSize = 1000;
-            data = (T*)malloc(sizeof(T) * MaxBlockSize);
+            data = (T*)operator new(sizeof(T) * MaxBlockSize);
             size = 0;
         }
         Block(const Block * other){
@@ -162,6 +162,7 @@ public:
 		 * TODO ++iter
 		 */
 		iterator& operator++() {
+		    if (origin == deq->Tail && pos == deq->Tail->size) throw(runtime_error());
 		    if (origin == deq->Tail && pos == deq->Tail->size-1){
 		        *this = iterator(deq->Tail, deq, deq->Tail->size);
 		        return *this;
@@ -180,6 +181,7 @@ public:
 		 * TODO --iter
 		 */
 		iterator& operator--() {
+		    if (origin == deq->Head && pos == 0) throw(runtime_error());
 		    *this = Less(1);
             return *this;
 		}
@@ -187,6 +189,7 @@ public:
 		 * TODO *it
 		 */
 		T& operator*() const {
+		    if (origin == deq->Tail && pos == deq->Tail->size) throw(runtime_error());
 		    return origin->data[pos];
 		}
 		/**
@@ -222,6 +225,11 @@ public:
 			deque * deq;
             const_iterator More(const int &n){
                 Block * p = origin; int count = 0; int delta;
+                if (n > deq->CurrentLen) throw(runtime_error());
+                if (n == 0) return *this;
+                int now = FindIndex() + n;
+                if (now > deq->CurrentLen) {puts("damn"); throw(runtime_error());}
+                if (now == deq->CurrentLen) return const_iterator(deq->Tail, deq, deq->Tail->size);
                 while(count < n){
                     if (p == origin){ delta = (p->size - pos);}
                     else delta = p->size;
@@ -238,10 +246,11 @@ public:
                         break;
                     }
                 }
-                return const_iterator(p, deq, count);
+                return const_iterator(p,deq, count);
             }
             const_iterator Less(const int &n){
                 Block * p = origin; int count = n;
+                if (n == 0) return *this;
                 while(count > 0){
                     int delta;
                     if (p == origin) {delta = pos;}
@@ -256,16 +265,7 @@ public:
                 return const_iterator(p, deq, count);
             }
             int FindIndex(){
-                Block * p = deq->Head; int index;
-                while(p != origin){
-                    index += p->size;
-                    p = p->next;
-                }
-                index += pos;
-                return index;
-            }
-            int FindIndex() const{
-                Block * p = deq->Head; int index;
+                Block * p = deq->Head; int index = 0;
                 while(p != origin){
                     index += p->size;
                     p = p->next;
@@ -285,18 +285,20 @@ public:
 				origin = other.origin; deq = other.deq; pos = other.pos;
 			}
             const_iterator operator+(const int &n) const {
-                if (n >= 0) return More(n);
-                else {return Less(-n);}
+                if (n >= 0) return const_cast<const_iterator *>(this)->More(n);
+                else {return const_cast<const_iterator *>(this)->Less(-n);}
             }
             const_iterator operator-(const int &n) const {
-                if (n <= 0) return More(-n);
-                else {return More(n);}
+                if (n <= 0) return const_cast<const_iterator *>(this)->More(-n);
+                else {return const_cast<const_iterator *>(this)->Less(n);}
             }
             // return th distance between two iterator,
             // if these two iterators points to different vectors, throw invaild_iterator.
-            int operator-(const const_iterator &rhs) const {
-                if (deq != rhs->deq) throw(invalid_iterator());
-                return (FindIndex() - rhs.FindIndex());
+            int operator-(const const_iterator &rhs) const{
+                if (deq != rhs.deq) throw(invalid_iterator());
+                int a = const_cast<const_iterator *>(this)->FindIndex();
+                int b = const_cast<const_iterator *>(&rhs)->FindIndex();
+                return (a -  b);
             }
             const_iterator operator+=(const int &n) {
                 *this = *this + n;
@@ -307,12 +309,20 @@ public:
                 return *this;
             }
             const_iterator operator++(int) {
+                if (origin == deq->Tail && pos == deq->Tail->size){
+                    pos++;
+                    return const_iterator(deq->Tail, deq, deq->Tail->size-1);
+                }
                 const_iterator ans(*this); *this = More(1);
                 return ans;
             }
             const_iterator& operator++() {
+                if (origin == deq->Tail && pos == deq->Tail->size){
+                    throw(runtime_error());
+                }
                 if (origin == deq->Tail && pos == deq->Tail->size-1) {
                     *this = const_iterator(deq->Tail, deq->Tail, deq->Tail->size);
+                    return *this;
                 }
                 *this = More(1);
                 return *this;
@@ -322,10 +332,12 @@ public:
                 return ans;
             }
             const_iterator& operator--() {
+                if (origin == deq->Head && pos == 0){throw(runtime_error());}
                 *this = Less(1);
                 return *this;
             }
             T& operator*() const {
+                if (origin == deq->Tail && pos == deq->Tail->size) throw (runtime_error());
                 return origin->data[pos];
             }
             T* operator->() const noexcept {
@@ -445,7 +457,7 @@ public:
 	    return iterator(Tail, this,Tail->size);
 	}
 	const_iterator cend() const {
-	    return const_iterator(Tail,this, Tail->size);
+	    return const_iterator(Tail, const_cast<deque *>(this), Tail->size);
 	}
 	/**
 	 * checks whether the container is empty.
@@ -491,18 +503,22 @@ public:
 	        push_back(value); return iterator(Tail, this, Tail->size-1);
 	    }
 	    if (index > p->size || index < 0) throw (invalid_iterator());
+
+	    int k = pos.FindIndex();
 	    if (p->size < MaxBlockSize) {
             for (int i = p->size; i > index; i--) {
                 new(p->data + i)T(p->data[i - 1]);
                 p->data[i - 1].~T();
             }
             new(p->data + index)T(value); CurrentLen++; p->size++;
-            return iterator(p, this, p->size-1);
+            //return iterator(p, this, p->size-1);
+            return Findpos(k);
         }
 	    else{
 	        split(pos); new(p->data+index)T(value);
 	        p->size++; CurrentLen++;
-	        return iterator(p, this, p->size-1);
+	        //return iterator(p, this, p->size-1);
+	        return Findpos(k);
 	    }
 
 	}
@@ -516,7 +532,7 @@ public:
 	    //TODO ~T() the value
 	    if (CurrentLen == 0) throw(container_is_empty());
 	    if (pos == end()-1) {
-	        pop_back(); return iterator(Tail, this, Tail->size-1);
+	        pop_back(); return end();
 	    }
 
 	    Block * p = pos.origin; int index = pos.pos;
