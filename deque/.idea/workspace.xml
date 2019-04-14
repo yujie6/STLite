@@ -12,12 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ddc6514-1437-4d3c-b557-08c55c8f6093" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/data/one/code.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/data/one/code.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/data/three/code.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/data/three/code.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/data/two/code.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/data/two/code.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/deque" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/deque" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/five/code.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/data/five/code.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/deque" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/deque.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/deque.hpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -33,11 +28,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/deque.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="107">
-              <caret line="230" column="28" selection-end-line="689" />
+            <state relative-caret-position="144">
+              <caret line="363" column="27" selection-start-line="363" selection-start-column="23" selection-end-line="363" selection-end-column="27" />
               <folding>
                 <element signature="e#47#72#0" expanded="true" />
                 <element signature="e#136#145#0" expanded="true" />
@@ -46,7 +41,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
@@ -96,6 +91,7 @@
       <find>merge</find>
       <find>erase</find>
       <find>FindInd</find>
+      <find>1000</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -109,8 +105,8 @@
         <option value="$PROJECT_DIR$/data/four/code.cpp" />
         <option value="$PROJECT_DIR$/data/two/code.cpp" />
         <option value="$PROJECT_DIR$/data/five/code.cpp" />
-        <option value="$PROJECT_DIR$/deque.hpp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/deque.hpp" />
       </list>
     </option>
   </component>
@@ -226,12 +222,12 @@
       <workItem from="1554861306120" duration="6752000" />
       <workItem from="1554969643253" duration="4169000" />
       <workItem from="1555028806360" duration="23163000" />
-      <workItem from="1555213826676" duration="39528000" />
+      <workItem from="1555213826676" duration="39919000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96967000" />
+    <option name="totallyTimeSpent" value="97358000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -245,8 +241,8 @@
   <component name="ToolWindowManager">
     <frame x="0" y="34" width="1600" height="866" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.3030303" visible="true" weight="0.22265123" />
-      <window_info id="Structure" order="1" sideWeight="0.6969697" side_tool="true" visible="true" weight="0.22265123" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.3033088" visible="true" weight="0.22265123" />
+      <window_info id="Structure" order="1" sideWeight="0.69669116" side_tool="true" visible="true" weight="0.22265123" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3292683" />
@@ -257,9 +253,9 @@
       <window_info anchor="bottom" id="Database Changes" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32655826" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="9" visible="true" weight="0.3292683" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.3292683" />
       <window_info anchor="bottom" id="CMake" order="10" weight="0.3292683" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.5406504" />
+      <window_info active="true" anchor="bottom" id="Messages" order="11" visible="true" weight="0.26287264" />
       <window_info anchor="bottom" id="TODO" order="12" weight="0.3292683" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -532,17 +528,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deque.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="230" column="28" selection-end-line="689" />
-          <folding>
-            <element signature="e#47#72#0" expanded="true" />
-            <element signature="e#136#145#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/five/code.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
@@ -557,6 +542,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deque.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="363" column="27" selection-start-line="363" selection-start-column="23" selection-end-line="363" selection-end-column="27" />
+          <folding>
+            <element signature="e#47#72#0" expanded="true" />
+            <element signature="e#136#145#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

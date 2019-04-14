@@ -32,11 +32,6 @@ private:
                 new(&data[i])T(other->data[i]);
             }
         }
-        Block(Block * n, Block *p):next(n),prev(p){
-            MaxBlockSize = 1000;
-            data = (T*)operator new(sizeof(T) * MaxBlockSize);
-            size = 0;
-        }
         ~Block(){
             for (int i = 0; i < size; i++) {
                 data[i].~T();
