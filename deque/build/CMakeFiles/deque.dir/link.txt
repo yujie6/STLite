@@ -1,1 +1,1 @@
-/usr/bin/c++     CMakeFiles/deque.dir/data/three/code.cpp.o  -o deque 
+/usr/bin/c++   -Wall   CMakeFiles/deque.dir/data/three/code.cpp.o  -o deque 

@@ -20,18 +20,28 @@ private:
         Block * next, * prev;
         int MaxBlockSize;
         Block(){
-            MaxBlockSize = 1000;
+            MaxBlockSize = 1100;
             data = (T*)operator new(sizeof(T) * MaxBlockSize);
             size = 0;
         }
         Block(const Block * other){
-            MaxBlockSize = 1000;
+            MaxBlockSize = 1100;
             size = other->size;
             data = (T*)operator new(sizeof(T) * MaxBlockSize);
             for (int i = 0; i < size; i++){
                 new(&data[i])T(other->data[i]);
             }
         }
+        void DoubleSpace(){
+            T * newdata = (T*)operator new(sizeof(T) * 2 * MaxBlockSize);
+            for (int i = 0; i < size; i++){
+                new(newdata+i)T(data[i]);
+            }
+            MaxBlockSize *= 2;
+            for (int i = 0; i < size; i++) { data[i].~T();}
+            delete data; data = newdata;
+        }
+
         ~Block(){
             for (int i = 0; i < size; i++) {
                 data[i].~T();
