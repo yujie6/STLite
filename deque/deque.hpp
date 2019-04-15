@@ -4,6 +4,7 @@
 #include "exceptions.hpp"
 #include <deque>
 #include <cstddef>
+#include <cmath>
 
 namespace sjtu {
 
@@ -20,12 +21,18 @@ private:
         Block * next, * prev;
         int MaxBlockSize;
         Block(){
-            MaxBlockSize = 1100;
+            MaxBlockSize = 750;
             data = (T*)operator new(sizeof(T) * MaxBlockSize);
             size = 0;
         }
+        Block(int a){
+            MaxBlockSize = a;
+            data = (T*)operator new(sizeof(T) * MaxBlockSize);
+            size = 0;
+        }
+
         Block(const Block * other){
-            MaxBlockSize = 1100;
+            MaxBlockSize = 750;
             size = other->size;
             data = (T*)operator new(sizeof(T) * MaxBlockSize);
             for (int i = 0; i < size; i++){
@@ -53,7 +60,6 @@ private:
     Block * Head;
     Block * Tail;
     int CurrentLen;
-    int MaxBlockSize;
 public:
 	class const_iterator;
 	class iterator {
@@ -366,12 +372,12 @@ public:
 	 * TODO Constructors
 	 */
 	deque() {
-	    MaxBlockSize = 1000; CurrentLen = 0;
+	    CurrentLen = 0;
 	    Head = Tail = new Block();
 	    Head->next = Tail; Tail->prev = Head;
 	}
 	deque(const deque &other) {
-        MaxBlockSize = 1000; CurrentLen = other.CurrentLen;
+	    CurrentLen = other.CurrentLen;
         Head = new Block(other.Head);
         if (other.Head == other.Tail) {Tail = Head; Tail->prev = Head; Head->next = Tail;}
         else {
@@ -510,7 +516,7 @@ public:
 	    if (index > p->size || index < 0) throw (invalid_iterator());
 
 	    int k = pos.FindIndex();
-	    if (p->size < MaxBlockSize) {
+	    if (p->size < p->MaxBlockSize) {
             for (int i = p->size; i > index; i--) {
                 new(p->data + i)T(p->data[i - 1]);
                 p->data[i - 1].~T();
@@ -520,6 +526,15 @@ public:
             return Findpos(k);
         }
 	    else{
+	        if (p->MaxBlockSize * 2 <= floor(sqrt(CurrentLen)) ){
+	            p->DoubleSpace();
+                for (int i = p->size; i > index; i--) {
+                    new(p->data + i)T(p->data[i - 1]);
+                    p->data[i - 1].~T();
+                }
+                new(p->data + index)T(value); CurrentLen++; p->size++;
+                return Findpos(k);
+	        }
 	        split(pos); new(p->data+index)T(value);
 	        p->size++; CurrentLen++;
 	        //return iterator(p, this, p->size-1);
@@ -556,18 +571,22 @@ public:
 	 * adds an element to the end
 	 */
 	void push_back(const T &value) {
-	    if (Tail->size < MaxBlockSize){
+	    if (Tail->size < Tail->MaxBlockSize){
 	        new(&Tail->data[Tail->size])T(value);
-	        Tail->size++;
+	        Tail->size++; CurrentLen++;
 	    }
 	    else {
+	        if (Tail->size * 2 < floor(sqrt(CurrentLen))){
+	            Tail->DoubleSpace();
+	            new(Tail->data+Tail->size)T(value);
+	            Tail->size++; CurrentLen++; return;
+	        }
 	        Block * p = new Block();
 	        p->size = 1;
 	        new(&p->data[0])T(value);
 	        Tail->next = p; p->prev = Tail;
-	        Tail = p;
+	        Tail = p; CurrentLen++;
 	    }
-        CurrentLen++;
 	}
 	/**
 	 * removes the last element
@@ -592,7 +611,7 @@ public:
 	 * inserts an element to the beginning.
 	 */
 	void push_front(const T &value) {
-	    if (Head->size < MaxBlockSize){
+	    if (Head->size < Head->MaxBlockSize){
 	        for (int i = Head->size; i >= 1; i--){
 	            new(Head->data + i)T(Head->data[i-1]);
 	            Head->data[i-1].~T();
@@ -600,11 +619,25 @@ public:
 	        Head->size++; CurrentLen++;
 	        new(Head->data)T(value); return;
 	    }
-        Block * p = new Block();
-        p->size = 1; new(p->data)T(value);
-        p->next = Head; Head->prev = p;
-        Head = p;
-        CurrentLen++;
+	    else {
+	        if (Head->MaxBlockSize * 2 < floor(sqrt(CurrentLen))){
+	            Head->DoubleSpace();
+                for (int i = Head->size; i >= 1; i--){
+                    new(Head->data + i)T(Head->data[i-1]);
+                    Head->data[i-1].~T();
+                }
+                new(Head->data)T(value);
+	            Head->size++; CurrentLen++;
+	            return;
+	        }
+            Block *p = new Block();
+            p->size = 1;
+            new(p->data)T(value);
+            p->next = Head;
+            Head->prev = p;
+            Head = p;
+            CurrentLen++;
+        }
     }
 	/**
 	 * removes the first element.
@@ -640,8 +673,9 @@ private:
 	    if (Head == Tail) return;
 	    Block * nextp = p->next; Block * nnp = nextp->next;
 	    if (p == Tail) return;
+	    //if (p->MaxBlockSize * 2 < floor(sqrt(CurrentLen))) p->DoubleSpace();
 	    if(nextp == Tail){
-            if (p->size + nextp->size <= MaxBlockSize){
+            if (p->size + nextp->size <= p->MaxBlockSize){
                 for (int i = 0; i < nextp->size; i++){
                     new(p->data+i+(p->size) )T(nextp->data[i]);
                 }
@@ -651,7 +685,7 @@ private:
             }
             return;
 	    }
-        if (p->size + nextp->size <= MaxBlockSize){
+        if (p->size + nextp->size <= p->MaxBlockSize){
             for (int i = 0; i < nextp->size; i++){
                 new(p->data+i+(p->size) )T(nextp->data[i]);
             }

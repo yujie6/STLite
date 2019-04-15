@@ -6,23 +6,25 @@
 
 #IncludeRegexTransform: 
 
-/home/yujie6/Documents/Algorithm/DataStructure/STLite/deque/data/three/code.cpp
-../../deque.hpp
-/home/yujie6/Documents/Algorithm/DataStructure/STLite/deque/deque.hpp
-ctime
--
+/home/yujie6/Documents/Algorithm/DataStructure/STLite/deque/data/six/code.cpp
 iostream
 -
-deque
+cstdio
 -
-random
+cstring
 -
-string
+queue
 -
-vector
+cstdlib
 -
 ctime
 -
+cmath
+-
+../../deque.hpp
+/home/yujie6/Documents/Algorithm/DataStructure/STLite/deque/deque.hpp
+../../exceptions.hpp
+/home/yujie6/Documents/Algorithm/DataStructure/STLite/deque/exceptions.hpp
 
 /home/yujie6/Documents/Algorithm/DataStructure/STLite/deque/deque.hpp
 exceptions.hpp
@@ -30,6 +32,8 @@ exceptions.hpp
 deque
 -
 cstddef
+-
+cmath
 -
 
 /home/yujie6/Documents/Algorithm/DataStructure/STLite/deque/exceptions.hpp
