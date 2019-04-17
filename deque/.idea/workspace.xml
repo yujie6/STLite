@@ -13,24 +13,17 @@
   <component name="ChangeListManager">
     <list default="true" id="9ddc6514-1437-4d3c-b557-08c55c8f6093" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/deque.dir/data/six/code.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/deque.dir/data/six/code.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/deque.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/deque.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/deque.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/deque.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/deque" beforeDir="false" afterPath="$PROJECT_DIR$/build/deque" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/data/four.memcheck/code.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/data/four.memcheck/code.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/data/five/code.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/data/five/code.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/data/four/code.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/data/four/code.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/data/one/code.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/data/one/code.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/data/six/code.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/data/six/code.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/data/three.memcheck/code.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/data/six/code.cpp.o" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/data/three/code.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/data/three/code.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/data/two/code.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/data/two/code.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/depend.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/deque" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/deque" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/one.memcheck/code.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/data/one.memcheck/code.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/six/code.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/data/six/code.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/two.memcheck/code.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/data/two.memcheck/code.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/three.memcheck/code.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/data/three.memcheck/code.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/deque.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/deque.hpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -49,8 +42,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/deque.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="39" column="32" selection-end-line="736" selection-end-column="6" />
+            <state relative-caret-position="80">
+              <caret line="28" column="32" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
               <folding>
                 <element signature="e#47#72#0" expanded="true" />
                 <element signature="e#157#166#0" expanded="true" />
@@ -69,10 +62,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/three.memcheck/code.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="79">
+              <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/six/code.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="316" column="4" selection-start-line="316" selection-start-column="4" selection-end-line="316" selection-end-column="4" />
+            <state relative-caret-position="5528">
+              <caret line="294" column="36" selection-start-line="294" selection-start-column="36" selection-end-line="294" selection-end-column="36" />
               <folding>
                 <element signature="e#1#20#0" expanded="true" />
               </folding>
@@ -84,7 +89,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>pop_fron</find>
       <find>operator-=</find>
       <find>inse</find>
       <find>begin</find>
@@ -112,8 +116,9 @@
       <find>max</find>
       <find>750</find>
       <find>complex</find>
-      <find>new Block</find>
       <find>clear</find>
+      <find>new Block</find>
+      <find>FindIndex(</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -130,9 +135,9 @@
         <option value="$PROJECT_DIR$/data/four.memcheck/code.cpp" />
         <option value="$PROJECT_DIR$/data/two.memcheck/code.cpp" />
         <option value="$PROJECT_DIR$/data/one.memcheck/code.cpp" />
+        <option value="$PROJECT_DIR$/data/six/code.cpp" />
         <option value="$PROJECT_DIR$/data/three.memcheck/code.cpp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/data/six/code.cpp" />
         <option value="$PROJECT_DIR$/deque.hpp" />
       </list>
     </option>
@@ -178,6 +183,12 @@
               <item name="deque" type="462c0819:PsiDirectoryNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
               <item name="six" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vector" type="b2602c69:ProjectViewProjectNode" />
+              <item name="deque" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="three.memcheck" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -236,12 +247,12 @@
       <workItem from="1555314582430" duration="7747000" />
       <workItem from="1555324891833" duration="163000" />
       <workItem from="1555332569577" duration="2527000" />
-      <workItem from="1555466019537" duration="1493000" />
+      <workItem from="1555466019537" duration="7007000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109796000" />
+    <option name="totallyTimeSpent" value="115310000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -256,13 +267,13 @@
     <frame x="0" y="34" width="1600" height="866" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.26666668" visible="true" weight="0.23873875" />
-      <window_info id="Structure" order="1" sideWeight="0.73333335" side_tool="true" visible="true" weight="0.23873875" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.35" visible="true" weight="0.23873875" />
+      <window_info id="Structure" order="1" sideWeight="0.65" side_tool="true" visible="true" weight="0.23873875" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3292683" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3089431" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.398374" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3495935" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.27235773" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Database Changes" order="6" />
@@ -293,11 +304,6 @@
           <url>file://$PROJECT_DIR$/data/three/code.cpp</url>
           <line>663</line>
           <option name="timeStamp" value="48" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/data/three.memcheck/code.cpp</url>
-          <line>193</line>
-          <option name="timeStamp" value="49" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -555,16 +561,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/three.memcheck/code.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/three/code.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="117">
@@ -585,10 +581,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/three.memcheck/code.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/data/six/code.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="316" column="4" selection-start-line="316" selection-start-column="4" selection-end-line="316" selection-end-column="4" />
+        <state relative-caret-position="5528">
+          <caret line="294" column="36" selection-start-line="294" selection-start-column="36" selection-end-line="294" selection-end-column="36" />
           <folding>
             <element signature="e#1#20#0" expanded="true" />
           </folding>
@@ -597,8 +603,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/deque.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="39" column="32" selection-end-line="736" selection-end-column="6" />
+        <state relative-caret-position="80">
+          <caret line="28" column="32" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
           <folding>
             <element signature="e#47#72#0" expanded="true" />
             <element signature="e#157#166#0" expanded="true" />

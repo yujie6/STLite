@@ -26,7 +26,7 @@ namespace sjtu {
             Block * next, * prev;
             int MaxBlockSize;
             Block(){
-                MaxBlockSize = 300;
+                MaxBlockSize = 100;
                 data = (T*)operator new(sizeof(T) * MaxBlockSize);
                 size = 0;
             }
@@ -37,7 +37,7 @@ namespace sjtu {
             }
 
             Block(const Block * other){
-                MaxBlockSize = 300;
+                MaxBlockSize = other->MaxBlockSize;
                 size = other->size;
                 data = (T*)operator new(sizeof(T) * MaxBlockSize);
                 for (int i = 0; i < size; i++){
@@ -706,7 +706,7 @@ namespace sjtu {
         void split(iterator t){
             Block * p = t.origin; int pos = t.pos;
             if (p == Tail){
-                Block * NewBlock = new Block( /*max(floor(sqrt(CurrentLen)), 750 )*/ );
+                Block * NewBlock = new Block( p->size-pos+100 );
                 NewBlock->size = (p->size - pos);
                 for (int i = 0; i < p->size-pos; i++){
                     new(NewBlock->data+i)T(p->data[i+pos]);
@@ -719,7 +719,7 @@ namespace sjtu {
             }
 
             Block * nextp = p->next;
-            Block * NewBlock = new Block( /*max(floor(sqrt(CurrentLen)), 750 )*/ );
+            Block * NewBlock = new Block( p->size );
             for (int i = 0; i < p->size-pos; i++){
                 new(NewBlock->data+i)T(p->data[i+pos]);
                 p->data[i+pos].~T();

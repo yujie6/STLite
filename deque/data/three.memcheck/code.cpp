@@ -10,7 +10,7 @@
 
 //std::default_random_engine randnum(time(NULL));
 
-static const int N = 10000;
+static const int N = 100000;
 static const int N_SPEED = 33500;
 
 typedef std::pair<const char *, std::pair<bool, double> (*)()> CheckerPair;
@@ -468,6 +468,7 @@ std::pair<bool, double> iteratorPAddOneChecker() {
 	auto itB = b.begin(), tB = itB;
 	for (auto itA = a.begin(), tA = itA; itA != a.end(); tA = ++itA, tB = ++itB) {
 		if (*itA != *itB) {
+		    std::cout << "shit";
 			return std::make_pair(false, 0);
 		}
 		if (tB != b.end() && *tA != *tB) {
