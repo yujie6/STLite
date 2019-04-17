@@ -1,1 +1,1 @@
-/usr/bin/c++   -Wall -g   CMakeFiles/deque.dir/data/six/code.cpp.o  -o deque 
+/usr/bin/c++   -Wall  -g   CMakeFiles/deque.dir/data/six/code.cpp.o  -o deque 
