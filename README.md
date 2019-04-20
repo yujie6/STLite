@@ -3,7 +3,7 @@
 <ol>
   <li>vector :heavy_check_mark:</li>
   <li>map <i>(DDL:2019-4-14)</i>:heavy_check_mark: </li>
-  <li>deque <i>(DDL:2019-4-14)</i> </li>
+  <li>deque <i>(DDL:2019-4-14)</i>:heavy_check_mark: </li>
 </ol>
 Finally..I'm almost done(by 2019-4-15 01:03)
 <h4>Memory check is really important for this homework. Here are some examples of the warnings of Valgrind</h4>

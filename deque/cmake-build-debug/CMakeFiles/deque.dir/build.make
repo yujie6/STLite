@@ -57,27 +57,27 @@ include CMakeFiles/deque.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/deque.dir/flags.make
 
-CMakeFiles/deque.dir/data/six/code.cpp.o: CMakeFiles/deque.dir/flags.make
-CMakeFiles/deque.dir/data/six/code.cpp.o: ../data/six/code.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yujie6/Documents/Algorithm/DataStructure/STLite/deque/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/deque.dir/data/six/code.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/deque.dir/data/six/code.cpp.o -c /home/yujie6/Documents/Algorithm/DataStructure/STLite/deque/data/six/code.cpp
+CMakeFiles/deque.dir/data/three.memcheck/code.cpp.o: CMakeFiles/deque.dir/flags.make
+CMakeFiles/deque.dir/data/three.memcheck/code.cpp.o: ../data/three.memcheck/code.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yujie6/Documents/Algorithm/DataStructure/STLite/deque/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/deque.dir/data/three.memcheck/code.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/deque.dir/data/three.memcheck/code.cpp.o -c /home/yujie6/Documents/Algorithm/DataStructure/STLite/deque/data/three.memcheck/code.cpp
 
-CMakeFiles/deque.dir/data/six/code.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/deque.dir/data/six/code.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yujie6/Documents/Algorithm/DataStructure/STLite/deque/data/six/code.cpp > CMakeFiles/deque.dir/data/six/code.cpp.i
+CMakeFiles/deque.dir/data/three.memcheck/code.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/deque.dir/data/three.memcheck/code.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yujie6/Documents/Algorithm/DataStructure/STLite/deque/data/three.memcheck/code.cpp > CMakeFiles/deque.dir/data/three.memcheck/code.cpp.i
 
-CMakeFiles/deque.dir/data/six/code.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/deque.dir/data/six/code.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yujie6/Documents/Algorithm/DataStructure/STLite/deque/data/six/code.cpp -o CMakeFiles/deque.dir/data/six/code.cpp.s
+CMakeFiles/deque.dir/data/three.memcheck/code.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/deque.dir/data/three.memcheck/code.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yujie6/Documents/Algorithm/DataStructure/STLite/deque/data/three.memcheck/code.cpp -o CMakeFiles/deque.dir/data/three.memcheck/code.cpp.s
 
 # Object files for target deque
 deque_OBJECTS = \
-"CMakeFiles/deque.dir/data/six/code.cpp.o"
+"CMakeFiles/deque.dir/data/three.memcheck/code.cpp.o"
 
 # External object files for target deque
 deque_EXTERNAL_OBJECTS =
 
-deque: CMakeFiles/deque.dir/data/six/code.cpp.o
+deque: CMakeFiles/deque.dir/data/three.memcheck/code.cpp.o
 deque: CMakeFiles/deque.dir/build.make
 deque: CMakeFiles/deque.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yujie6/Documents/Algorithm/DataStructure/STLite/deque/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable deque"

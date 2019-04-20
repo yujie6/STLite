@@ -13,8 +13,13 @@
   <component name="ChangeListManager">
     <list default="true" id="9ddc6514-1437-4d3c-b557-08c55c8f6093" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/cmake_clean.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/data/five/code.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/data/five/code.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/data/four.memcheck/code.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/data/four.memcheck/code.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/data/four/code.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/data/four/code.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/data/one/code.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/data/one/code.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/data/six/code.cpp.o" beforeDir="false" />
@@ -22,8 +27,10 @@
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/data/two/code.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/data/two/code.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/depend.internal" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/deque.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/deque" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/deque" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/three.memcheck/code.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/data/three.memcheck/code.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/vector.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/vector.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/deque.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/deque.hpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -42,11 +49,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/deque.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="28" column="32" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
+            <state relative-caret-position="160">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
               <folding>
-                <element signature="e#47#72#0" expanded="true" />
-                <element signature="e#157#166#0" expanded="true" />
+                <element signature="e#88#113#0" expanded="true" />
+                <element signature="e#223#232#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -56,7 +63,7 @@
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
-              <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+              <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -64,8 +71,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/three.memcheck/code.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="79">
-              <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+            <state relative-caret-position="3240">
+              <caret line="162" selection-start-line="162" selection-end-line="162" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -76,8 +83,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/six/code.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5528">
-              <caret line="294" column="36" selection-start-line="294" selection-start-column="36" selection-end-line="294" selection-end-column="36" />
+            <state relative-caret-position="2220">
+              <caret line="111" selection-start-line="111" selection-end-line="111" />
               <folding>
                 <element signature="e#1#20#0" expanded="true" />
               </folding>
@@ -89,18 +96,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>operator-=</find>
-      <find>inse</find>
-      <find>begin</find>
-      <find>Findind</find>
-      <find>More</find>
-      <find>operator++</find>
-      <find>Curren</find>
-      <find>push_back</find>
-      <find>back</find>
-      <find>insert</find>
-      <find>] =</find>
-      <find>value</find>
       <find>~T()</find>
       <find>ansCoun</find>
       <find>operator--</find>
@@ -111,7 +106,6 @@
       <find>MaxBlockSize</find>
       <find>merge</find>
       <find>MaxB</find>
-      <find>Double</find>
       <find>new Blo</find>
       <find>max</find>
       <find>750</find>
@@ -119,7 +113,26 @@
       <find>clear</find>
       <find>new Block</find>
       <find>FindIndex(</find>
+      <find>Findpos</find>
+      <find>Find</find>
+      <find>Double</find>
+      <find>Block(</find>
+      <find>for (</find>
+      <find>MAx</find>
+      <find>sz</find>
+      <find>iterator</find>
+      <find>contain</find>
+      <find>dat</find>
+      <find>MaxBlock</find>
+      <find>doubleS</find>
+      <find>doubleSpace</find>
     </findStrings>
+    <replaceStrings>
+      <replace>CurrentLenth</replace>
+      <replace>const_iterator</replace>
+      <replace>data</replace>
+      <replace>DoubleSpace</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -154,7 +167,6 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="800" />
     <option name="y" value="34" />
     <option name="width" value="800" />
     <option name="height" value="866" />
@@ -177,18 +189,6 @@
               <item name="vector" type="b2602c69:ProjectViewProjectNode" />
               <item name="deque" type="462c0819:PsiDirectoryNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="vector" type="b2602c69:ProjectViewProjectNode" />
-              <item name="deque" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="six" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="vector" type="b2602c69:ProjectViewProjectNode" />
-              <item name="deque" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="three.memcheck" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -247,12 +247,14 @@
       <workItem from="1555314582430" duration="7747000" />
       <workItem from="1555324891833" duration="163000" />
       <workItem from="1555332569577" duration="2527000" />
-      <workItem from="1555466019537" duration="7007000" />
+      <workItem from="1555466019537" duration="8160000" />
+      <workItem from="1555723902631" duration="10894000" />
+      <workItem from="1555737217954" duration="1624000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115310000" />
+    <option name="totallyTimeSpent" value="128981000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -267,17 +269,39 @@
     <frame x="0" y="34" width="1600" height="866" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.35" visible="true" weight="0.23873875" />
-      <window_info id="Structure" order="1" sideWeight="0.65" side_tool="true" visible="true" weight="0.23873875" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.2809524" visible="true" weight="0.20656371" />
+      <window_info id="Structure" order="1" sideWeight="0.7190476" side_tool="true" visible="true" weight="0.20656371" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3292683" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3495935" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.43089432" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.27235773" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Database Changes" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32655826" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3211382" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.5501355" />
+      <window_info anchor="bottom" id="CMake" order="10" weight="0.3292683" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.43766937" />
+      <window_info anchor="bottom" id="TODO" order="12" weight="0.3292683" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.3482309" visible="true" weight="0.2039897" />
+      <window_info id="Structure" order="1" sideWeight="0.6517691" side_tool="true" visible="true" weight="0.2039897" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3292683" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.2777778" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.27235773" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Database Changes" order="6" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3211382" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.5501355" />
       <window_info anchor="bottom" id="CMake" order="10" weight="0.3292683" />
@@ -287,7 +311,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" />
-    </layout>
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -304,6 +328,11 @@
           <url>file://$PROJECT_DIR$/data/three/code.cpp</url>
           <line>663</line>
           <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/data/six/code.cpp</url>
+          <line>111</line>
+          <option name="timeStamp" value="54" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -574,17 +603,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/deque.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="e#88#113#0" expanded="true" />
+            <element signature="e#223#232#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
-          <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+          <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/three.memcheck/code.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+        <state relative-caret-position="3240">
+          <caret line="162" selection-start-line="162" selection-end-line="162" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -593,21 +633,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data/six/code.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5528">
-          <caret line="294" column="36" selection-start-line="294" selection-start-column="36" selection-end-line="294" selection-end-column="36" />
+        <state relative-caret-position="2220">
+          <caret line="111" selection-start-line="111" selection-end-line="111" />
           <folding>
             <element signature="e#1#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deque.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="28" column="32" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
-          <folding>
-            <element signature="e#47#72#0" expanded="true" />
-            <element signature="e#157#166#0" expanded="true" />
           </folding>
         </state>
       </provider>

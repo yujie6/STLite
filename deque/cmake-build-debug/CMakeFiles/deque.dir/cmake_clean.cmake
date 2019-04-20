@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/deque.dir/data/six/code.cpp.o"
+  "CMakeFiles/deque.dir/data/three.memcheck/code.cpp.o"
   "deque.pdb"
   "deque"
 )
