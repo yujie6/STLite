@@ -1,3 +1,4 @@
+#pragma GCC optimize(3)
 #ifndef SJTU_DEQUE_HPP
 #define SJTU_DEQUE_HPP
 
@@ -26,7 +27,7 @@ namespace sjtu {
             Block * next, * prev;
             int MaxBlockSize;
             Block(){
-                MaxBlockSize = 100;
+                MaxBlockSize = 512;
                 data = (T*)operator new(sizeof(T) * MaxBlockSize);
                 size = 0;
             }
@@ -81,14 +82,15 @@ namespace sjtu {
                 Block * p = origin; int count = 0; int delta;
                 if (n > deq->CurrentLen) throw(runtime_error());
                 if (n == 0) return *this;
-                int now = FindIndex() + n;
-                if (now > deq->CurrentLen) {puts("damn"); throw(runtime_error());}
-                if (now == deq->CurrentLen) return iterator(deq->Tail, deq, deq->Tail->size);
                 while(count < n){
                     if (p == origin){ delta = (p->size - pos);}
                     else delta = p->size;
 
                     if (count + delta <= n){
+                        if (p == deq->Tail) {
+                            if (count + delta < n) throw(runtime_error());
+                            else return iterator(p,deq, p->size);
+                        }
                         p = p->next; count += delta;
                         if (count == n){
                             count = 0; break;
@@ -100,6 +102,7 @@ namespace sjtu {
                         break;
                     }
                 }
+                if (count >= p->size) throw(runtime_error());
                 return iterator(p,deq, count);
             }
             iterator Less(const int &n){
@@ -134,7 +137,7 @@ namespace sjtu {
                 while(p != origin){
                     index += p->size;
                     p = p->next;
-                }
+                } //O(\sqrt(n))
                 index += pos;
                 return index;
             }
@@ -171,7 +174,8 @@ namespace sjtu {
                     return iterator(deq->Tail, deq, deq->Tail->size-1);
                 }
                 iterator ans(*this);
-                *this = More(1);
+                if (pos <= origin->size-2) pos++;
+                else {origin = origin->next; pos = 0;}
                 return ans;
             }
             /**
@@ -180,17 +184,22 @@ namespace sjtu {
             iterator& operator++() {
                 if (origin == deq->Tail && pos == deq->Tail->size) throw(runtime_error());
                 if (origin == deq->Tail && pos == deq->Tail->size-1){
-                    *this = iterator(deq->Tail, deq, deq->Tail->size);
-                    return *this;
+                    pos++; return *this;
                 }
                 *this = More(1);
+                /*if (pos <= origin->size - 2) pos++;
+                else {origin = origin->next; pos = 0;}*/
+
                 return *this;
             }
             /**
              * TODO iter--
              */
             iterator operator--(int) {
-                iterator ans(*this); *this = Less(1);
+                if (origin == deq->Head && pos == 0) throw(runtime_error());
+                iterator ans(*this);
+                if (pos > 0) pos--;
+                else {origin = origin->prev; pos = origin->size-1;}
                 return ans;
             }
             /**
@@ -198,7 +207,8 @@ namespace sjtu {
              */
             iterator& operator--() {
                 if (origin == deq->Head && pos == 0) throw(runtime_error());
-                *this = Less(1);
+                if (pos > 0) pos--;
+                else {origin = origin->prev; pos = origin->size-1;}
                 return *this;
             }
             /**
@@ -243,14 +253,15 @@ namespace sjtu {
                 Block * p = origin; int count = 0; int delta;
                 if (n > deq->CurrentLen) throw(runtime_error());
                 if (n == 0) return *this;
-                int now = FindIndex() + n;
-                if (now > deq->CurrentLen) {puts("damn"); throw(runtime_error());}
-                if (now == deq->CurrentLen) return const_iterator(deq->Tail, deq, deq->Tail->size);
                 while(count < n){
                     if (p == origin){ delta = (p->size - pos);}
                     else delta = p->size;
 
                     if (count + delta <= n){
+                        if (p == deq->Tail) {
+                            if (count + delta < n) throw(runtime_error());
+                            else return iterator(p,deq, p->size);
+                        }
                         p = p->next; count += delta;
                         if (count == n){
                             count = 0; break;
@@ -262,6 +273,7 @@ namespace sjtu {
                         break;
                     }
                 }
+                if (count >= p->size) throw(runtime_error());
                 return const_iterator(p,deq, count);
             }
             const_iterator Less(const int &n){
@@ -521,7 +533,6 @@ namespace sjtu {
             }
             if (index > p->size || index < 0) throw (invalid_iterator());
 
-            int k = pos.FindIndex();
             if (p->size < p->MaxBlockSize) {
                 for (int i = p->size; i > index; i--) {
                     new(p->data + i)T(p->data[i - 1]);
@@ -529,7 +540,7 @@ namespace sjtu {
                 }
                 new(p->data + index)T(value); CurrentLen++; p->size++;
                 //return iterator(p, this, p->size-1);
-                return Findpos(k);
+                return iterator(p, this, index);
             }
             else{
                 if (p->MaxBlockSize * 2 <= floor(sqrt(CurrentLen)) ){
@@ -539,12 +550,11 @@ namespace sjtu {
                         p->data[i - 1].~T();
                     }
                     new(p->data + index)T(value); CurrentLen++; p->size++;
-                    return Findpos(k);
+                    return iterator(p, this, index);
                 }
                 split(pos); new(p->data+index)T(value);
                 p->size++; CurrentLen++;
-                //return iterator(p, this, p->size-1);
-                return Findpos(k);
+                return iterator(p, this, index);
             }
 
         }
@@ -562,16 +572,15 @@ namespace sjtu {
             }
 
             Block * p = pos.origin; int index = pos.pos;
-            int k = pos.FindIndex();
             p->data[index].~T();
             for (int i = index+1; i < p->size; i++){
                 new(p->data+i-1)T(p->data[i]);
                 p->data[i].~T();
             }
             p->size--; CurrentLen--;
+            if (index == p->size)return iterator(p->next, this, 0);
             if (p != Tail) merge(p);
-            else if (p == Tail && p->size == 0 && Tail != Head) {Tail = p->prev; delete p;}
-            return Findpos(k);
+            return iterator(p, this, index);
         }
         /**
          * adds an element to the end
@@ -587,7 +596,7 @@ namespace sjtu {
                     new(Tail->data+Tail->size)T(value);
                     Tail->size++; CurrentLen++; return;
                 }
-                Block * p = new Block( /*floor(sqrt(CurrentLen))*/);
+                Block * p = new Block( /*max(floor(sqrt(CurrentLen)),500)*/ );
                 p->size = 1;
                 new(&p->data[0])T(value);
                 Tail->next = p; p->prev = Tail;
@@ -636,7 +645,7 @@ namespace sjtu {
                     Head->size++; CurrentLen++;
                     return;
                 }
-                Block *p = new Block( /*max(floor(sqrt(CurrentLen)), 750 )*/ );
+                Block *p = new Block( /*max(floor(sqrt(CurrentLen)), 200 ) */);
                 p->size = 1;
                 new(p->data)T(value);
                 p->next = Head;
@@ -706,7 +715,7 @@ namespace sjtu {
         void split(iterator t){
             Block * p = t.origin; int pos = t.pos;
             if (p == Tail){
-                Block * NewBlock = new Block( p->size-pos+100 );
+                Block * NewBlock = new Block( max(floor(sqrt(CurrentLen)), p->MaxBlockSize ) );
                 NewBlock->size = (p->size - pos);
                 for (int i = 0; i < p->size-pos; i++){
                     new(NewBlock->data+i)T(p->data[i+pos]);
@@ -719,7 +728,7 @@ namespace sjtu {
             }
 
             Block * nextp = p->next;
-            Block * NewBlock = new Block( p->size );
+            Block * NewBlock = new Block( p->MaxBlockSize );
             for (int i = 0; i < p->size-pos; i++){
                 new(NewBlock->data+i)T(p->data[i+pos]);
                 p->data[i+pos].~T();
